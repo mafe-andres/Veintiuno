@@ -1,6 +1,6 @@
 public class Carta {
 
-  int palo = 0;
+  int palo = 0; // 0 = treboles, 1 = picas 2 = corazones 3 = diamantes
   int numero = 0;
   int ID = 0;
   

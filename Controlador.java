@@ -1,5 +1,6 @@
 class Controlador {
   public static void main(String[] args) {
-    System.out.println("Hello world!");
+    Juego juego = new Juego("Pepe", "Luis");
+    juego.iniciar();
   }
 }
