@@ -4,22 +4,24 @@ import java.util.Scanner;
 public class Jugador {
 
   String nombre = " ";
+  Boolean termino = false;
   int victorias = 0;
   ArrayList<Carta> mano = new ArrayList<Carta>();
-  
+  Scanner capt = new Scanner(System.in);
+  Boolean AsJugador = false;
+
   public Jugador(String n) {
     nombre = n;
+    termino = false;
   }
   
   public boolean recibirCarta(){
-    Scanner capt = new Scanner(System.in);
-    System.out.print("Desea mas cartas:\nDigite 1 para SI y 2 para NO "); // Esto es solo para probarlo por el momento
+    System.out.print("Desea mas cartas:\n1. Si \n2. No\n"); // Esto es solo para probarlo por el momento
     int a = capt.nextInt();
     if(a == 1){
       return true;
-    }else if(a == 2){
-      return false;
     }else{
+      setTermino(true);
       return false;
     }
   }
@@ -55,4 +57,26 @@ public class Jugador {
     }
     return As;
   }
+
+
+  public void setTermino(boolean termino){
+  this.termino = termino;
+  }
+
+  public boolean getTermino(){
+  return termino;
+  }
+
+  public ArrayList<Carta> getMano(){
+  return mano;
+  }
+
+  public boolean getAsJugador(){
+  return AsJugador;
+  }
+
+  public void setAsJugador(boolean AsJugador){
+  this.AsJugador = AsJugador;
+  }
+
 }

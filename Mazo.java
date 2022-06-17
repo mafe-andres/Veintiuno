@@ -26,7 +26,9 @@ public class Mazo {
   }
 
   public Carta getCarta(){
-    return mazo.get(0);
+    Carta a = mazo.get(0);
+    mazo.remove(0);
+    return a;
   }
   
 }

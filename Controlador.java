@@ -1,6 +1,6 @@
 class Controlador {
   public static void main(String[] args) {
-    Juego juego = new Juego("Pepe", "Luis");
-    juego.iniciar();
+    Juego juego = new Juego("Andy", "Mafe");
+    juego.jugar();
   }
 }
