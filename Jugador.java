@@ -3,12 +3,13 @@ import java.util.Scanner;
 
 public class Jugador {
 
-  String nombre = " ";
-  Boolean termino = false;
-  int victorias = 0;
-  ArrayList<Carta> mano = new ArrayList<Carta>();
+  private String nombre = " ";
+  private Boolean termino = false;
+  private int victorias = 0;
+  private ArrayList<Carta> mano = new ArrayList<Carta>();
+  private Boolean AsJugador = false;
+
   Scanner capt = new Scanner(System.in);
-  Boolean AsJugador = false;
 
   public Jugador(String n) {
     nombre = n;
@@ -79,4 +80,20 @@ public class Jugador {
   this.AsJugador = AsJugador;
   }
 
+  public String getNombre(){
+    return nombre;
+  }
+
+  public void setNombre(String nombre){
+    this.nombre = nombre;
+  }
+
+  public int getVictorias(){
+    return victorias;
+  }
+
+  public void setVictorias(int victorias){
+    this.victorias = victorias;
+  }
+  
 }

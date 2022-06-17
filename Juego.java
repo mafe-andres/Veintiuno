@@ -3,10 +3,10 @@ import java.util.Scanner;
 
 public class Juego {
 
-  Mazo mazo;
-  Jugador jugador1;
-  Jugador jugador2;
-	int victorias;
+  private Mazo mazo;
+  private Jugador jugador1;
+  private Jugador jugador2;
+	private int victorias1, victorias2;
   Scanner capt = new Scanner(System.in);
 
   public Juego(String name1, String name2) {
@@ -37,7 +37,7 @@ public class Juego {
   //Deberia de manejar la entrada de cartas y ver si hay As
   public void turno(Jugador jugador){
     if(jugador.recibirCarta()){
-      jugador.mano.add(mazo.getCarta());
+      jugador.getMano().add(mazo.getCarta());
     }
     if(jugador.getTermino() == true){
       verificar(jugador);
@@ -48,10 +48,10 @@ public class Juego {
   public void ronda(){
       jugador1.setTermino(false); 
       jugador2.setTermino(false);
-      jugador1.mano.add(mazo.getCarta());
-      jugador1.mano.add(mazo.getCarta());
-      jugador2.mano.add(mazo.getCarta());
-      jugador2.mano.add(mazo.getCarta());
+      jugador1.getMano().add(mazo.getCarta());
+      jugador1.getMano().add(mazo.getCarta());
+      jugador2.getMano().add(mazo.getCarta());
+      jugador2.getMano().add(mazo.getCarta());
       while(true){
         if(jugador1.getTermino() == false){
           System.out.println("Jugador 1");
@@ -80,7 +80,7 @@ public class Juego {
 
 
   public void mostrarCartas(Jugador jugador){
-    for(int i=0;i<jugador.mano.size();i++){
+    for(int i=0;i<jugador.getMano().size();i++){
       System.out.println("Carta:"+jugador.getMano().get(i).getNumero()+" Palo: "+jugador.getMano().get(i).getPalo());
     }
   }
@@ -101,11 +101,13 @@ public class Juego {
   //Ganador solo tiene que verificar la suma
   public void ganador(){
     if(jugador1.suma(jugador1.getAsJugador()) <= 21 && (jugador1.suma(jugador1.getAsJugador()) > jugador2.suma(jugador2.getAsJugador()))||jugador2.suma(jugador2.getAsJugador()) > 21){
-      jugador1.victorias ++;
-      System.out.println("El ganador de este turno es " + jugador1.nombre);
+      victorias1++;
+      jugador1.setVictorias(victorias1);
+      System.out.println("El ganador de este turno es " + jugador1.getNombre());
     }else if(jugador2.suma(jugador2.getAsJugador()) <= 21 && (jugador2.suma(jugador2.getAsJugador()) > jugador1.suma(jugador1.getAsJugador()))||jugador1.suma(jugador1.getAsJugador()) > 21){
-      jugador2.victorias ++;
-      System.out.println("El ganador de este turno es " + jugador2.nombre);
+      victorias2++;
+      jugador2.setVictorias(victorias2);
+      System.out.println("El ganador de este turno es " + jugador2.getNombre());
     }else{
       System.out.println("Los jugadores quedaron empates");
     }
