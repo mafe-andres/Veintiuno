@@ -1,11 +1,9 @@
-package src;
-
 import java.util.ArrayList;
 import java.util.*;
 
 public class Mazo {
 
-  ArrayList<Carta> mazo = new ArrayList<>();
+  ArrayList<Carta> mazo = new ArrayList<Carta>();
 
   public void iniciarBaraja(){
     for (int i = 1; i < 14; i++) {

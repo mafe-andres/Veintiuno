@@ -1,19 +1,18 @@
-package src;
 import java.util.Scanner;
 
 
 public class Juego {
 
-  private Mazo mazo = new Mazo();
-  private Jugador jugador1 = new Jugador("");
-  private Jugador jugador2 = new Jugador("");
+  private Mazo mazo;
+  private Jugador jugador1;
+  private Jugador jugador2;
 	private int victorias1, victorias2;
   Scanner capt = new Scanner(System.in);
 
   public Juego(String name1, String name2) {
-    this.jugador1.setNombre(name1);
-    this.jugador2.setNombre(name2);
-    this.mazo = new Mazo();
+    this.jugador1 = new Jugador(name1);
+    this.jugador2 = new Jugador(name2);
+		this.mazo = new Mazo();
   }
 
   //Deberia de iniciar la baraja y controlar las rondas (preguntar si quiere jugar otra ronda)
