@@ -1,3 +1,5 @@
+package src;
+
 public class Carta {
 
   int palo = 0; // 0 = treboles, 1 = picas 2 = corazones 3 = diamantes

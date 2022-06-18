@@ -1,3 +1,4 @@
+package src;
 import java.util.ArrayList; 
 import java.util.Scanner;
 
@@ -6,7 +7,7 @@ public class Jugador {
   private String nombre = " ";
   private Boolean termino = false;
   private int victorias = 0;
-  private ArrayList<Carta> mano = new ArrayList<Carta>();
+  private ArrayList<Carta> mano = new ArrayList<>();
   private Boolean AsJugador = false;
 
   Scanner capt = new Scanner(System.in);
@@ -34,18 +35,28 @@ public class Jugador {
   public int suma(boolean As){
     int suma = 0;
     for(int i = 0; i < mano.size(); i++){
-      if(mano.get(i).numero == 11 || mano.get(i).numero == 12 || mano.get(i).numero == 13){
-        suma += 10;
-      }else if(mano.get(i).numero == 1){
-        if(As == true){
-          suma += 11;
-        }else{
-          suma += 1;
+        int manoInt = mano.get(i).numero;
+        switch(manoInt){
+            case 1:
+                if(As == true){
+                    suma += 11;
+                }else{
+                    suma += 1;
+                }
+            case 11:
+                suma += 10;
+                break;
+            case 12:
+                suma += 10;
+                break;
+            case 13:
+                suma += 10;
+                break;
+            default:
+                suma += mano.get(i).numero;
+                break;
+            }   
         }
-      }else{
-        suma += mano.get(i).numero;
-      }
-    }
     return suma;
   }
 
