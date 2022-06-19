@@ -1,13 +1,10 @@
 package proyecto_blackjack;
 
-import javax.swing.ImageIcon;
-
 public class Carta {
 
   int palo = 0; // 0 = treboles, 1 = picas 2 = corazones 3 = diamantes
   int numero = 0;
   int ID = 0;
-  private ImageIcon imagen;
   
   public Carta(int palo, int numero) {
     this.palo = palo;

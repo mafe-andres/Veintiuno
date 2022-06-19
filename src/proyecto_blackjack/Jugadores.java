@@ -113,14 +113,25 @@ public class Jugadores extends javax.swing.JFrame {
     private void jug1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jug1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jug1ActionPerformed
-    
+
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        this.setVisible(false); 
-        Controlador controlador = new Controlador(jug1.getText(), jug2.getText()); 
-        controlador.jugar();
+        setVisible(false);
+        
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
-       
+
+    
+    
+    public JTextField getJug1() {
+        return jug1;
+    }
+
+    public JTextField getJug2() {
+        return jug2;
+    }
+
+    
+    
     /**
      * @param args the command line arguments
      */
