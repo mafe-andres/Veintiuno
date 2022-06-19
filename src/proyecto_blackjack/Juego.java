@@ -14,24 +14,24 @@ public class Juego {
   public Juego(String name1, String name2) {
     this.jugador1 = new Jugador(name1);
     this.jugador2 = new Jugador(name2);
-		this.mazo = new Mazo();
+    this.mazo = new Mazo();
   }
 
   //Deberia de iniciar la baraja y controlar las rondas (preguntar si quiere jugar otra ronda)
   public void jugar(){
     mazo.iniciarBaraja();
-    boolean jugar = true;
+    int jugar = 0;
     int a = 0;
-    while(jugar){
+    while(jugar<5){
       ronda();
       System.out.println("Quiere jugar otra vez: \n1. Si\t2.No\n");
       a = capt.nextInt();
       if(a == 1){
-        jugar = true;
+        jugar = 4;
         jugador1.desecharMano();
         jugador2.desecharMano();
       }else{
-        jugar = false;
+        jugar = 6;
       }
     }
   }
