@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package proyecto_blackjack;
-
+import javax.swing.ImageIcon;
 /**
  *
  * @author Andy
@@ -18,6 +18,8 @@ public class Mesa extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         initComponents();
         this.controlador = controlador;
+        ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/back.png"));
+        lblTry.setIcon(imagen);
     }
 
     /**
@@ -30,6 +32,7 @@ public class Mesa extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
+        lblTry = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,23 +45,30 @@ public class Mesa extends javax.swing.JFrame {
             }
         });
 
+        lblTry.setText("jLabel2");
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fonditoblackjack.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(lblTry, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(300, 300, 300)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
             .addGroup(layout.createSequentialGroup()
                 .addGap(240, 240, 240)
-                .addComponent(jButton2))
+                .addComponent(jButton2)
+                .addGap(39, 39, 39)
+                .addComponent(lblTry, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jLabel1)
         );
 
         pack();
@@ -73,5 +83,6 @@ public class Mesa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblTry;
     // End of variables declaration//GEN-END:variables
 }
