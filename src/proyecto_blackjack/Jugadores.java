@@ -15,8 +15,9 @@ import javax.swing.JTextField;
 public class Jugadores extends javax.swing.JFrame {
 
     
-    public Jugadores() {
+    public Jugadores(Controlador controlador) {
         initComponents();
+        this.controlador = controlador;
     }
 
     /**
@@ -115,9 +116,7 @@ public class Jugadores extends javax.swing.JFrame {
     }//GEN-LAST:event_jug1ActionPerformed
     
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        this.setVisible(false); 
-        Controlador controlador = new Controlador(jug1.getText(), jug2.getText()); 
-        controlador.jugar();
+        controlador.initMesa(jug1.getText(), jug2.getText());
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
        
@@ -156,6 +155,7 @@ public class Jugadores extends javax.swing.JFrame {
         });
     }
 
+    private Controlador controlador;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel jLabel1;

@@ -12,7 +12,7 @@ public class Carta {
   public Carta(int palo, int numero) {
     this.palo = palo;
     this.numero = numero;
-    this.imagen = new ImageIcon(getClass().getResource("/cartas/"+getNombreImagen(palo, numero)));
+//    this.imagen = new ImageIcon(getClass().getResource("/cartas/"+getNombreImagen(palo, numero)));
   }
   
   public int getPalo(){

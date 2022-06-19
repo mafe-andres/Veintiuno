@@ -11,9 +11,9 @@ public class Juego {
   private int victorias1, victorias2;
   Scanner capt = new Scanner(System.in);
 
-  public Juego(String name1, String name2) {
-    this.jugador1 = new Jugador(name1);
-    this.jugador2 = new Jugador(name2);
+  public Juego() {
+    this.jugador1 = new Jugador();
+    this.jugador2 = new Jugador();
     this.mazo = new Mazo();
   }
 
@@ -36,6 +36,10 @@ public class Juego {
     }
   }
   
+  public void setNombres(String jugador1, String jugador2){
+    this.jugador1.setNombre(jugador1);
+    this.jugador2.setNombre(jugador2);
+  }
   //Deberia de manejar la entrada de cartas y ver si hay As
   public void turno(Jugador jugador){
     if(jugador.recibirCarta()){

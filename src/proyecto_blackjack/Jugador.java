@@ -13,8 +13,7 @@ public class Jugador {
 
   Scanner capt = new Scanner(System.in);
 
-  public Jugador(String n) {
-    nombre = n;
+  public Jugador() {
     termino = false;
   }
   
