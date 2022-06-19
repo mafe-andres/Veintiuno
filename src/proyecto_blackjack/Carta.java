@@ -12,8 +12,7 @@ public class Carta {
   public Carta(int palo, int numero) {
     this.palo = palo;
     this.numero = numero;
-    this.imagen = new ImageIcon(getClass().getResource(getNombreImagen(palo, numero)));
-    System.out.println(getClass().getResource(getNombreImagen(palo, numero)));
+//    this.imagen = new ImageIcon(getClass().getResource("/cartas/"+getNombreImagen(palo, numero)));
   }
   
   public int getPalo(){
@@ -24,22 +23,11 @@ public class Carta {
     return numero;
   }
   
-  public String getNombreImagen(int palo, int numero){
+  public String getNombreImagne(int palo, int numero){
       String nombre = "";
-        switch(palo){
-            case 0:
-                nombre = "/Imagenes/" + numero + "treboles.png";
-                break;
-            case 1:
-                nombre = "/Imagenes/" + numero + "picas.png";
-                break;
-            case 2:
-                nombre = "/Imagenes/" + numero + "corazones.png";
-                break;
-            case 3:
-                nombre = "/Imagenes/" + numero + "diamantes.png";
-                break;
-        }
+      //switch(palo){
+          
+      
       return nombre;
   }
   
