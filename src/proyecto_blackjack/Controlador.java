@@ -47,23 +47,25 @@ public class Controlador{
         
     }
     
-    private void actualizarCartas(int turno) {
+    public void pedirCarta() {
+        juego.repartirCarta(turno);
+        actualizarCartas();
+    }
+    
+    private void actualizarCartas() {
         ArrayList<Integer> cartas = juego.getCartasMesa();
-        int numPalo = cartas.get(0);
-        /*for (int i = 0; i< CARTASXMES; i++) {
-            numPalo= cartas.get(i);
-            if (numPalo[0]!=0){
-                System.out.println(getNombreImagen(numPalo[0],numPalo[1]));
-              mesa.iconCarta(i+1,getNombreImagen(numPalo[0],numPalo[1]));
-              mesa.showCarta(1+1);
+        int num = cartas.get(0);
+        int palo = cartas.get(0);
+        for (int i = 0; i< CARTASXMES; i++) {
+            num= cartas.get(i*2);
+            palo = cartas.get(i*2+1);
+            if (num!=0){
+              mesa.iconCarta(i+1,getNombreImagen(num,palo));
+              mesa.showCarta(i+1);
             } else {
-                mesa.hideCarta(i);
+                mesa.hideCarta(i+1);
             }
-        }*/
-        System.out.println(numPalo);
-        mesa.iconCarta(1,getNombreImagen(cartas.get(0),cartas.get(1)));
-        mesa.hideCarta(2);
-        //mesa.iconCarta(2,getNombreImagen(numPalo[0],numPalo[1]));
+        }
     }
     
      public String getNombreImagen(int numero, int palo){
@@ -98,8 +100,9 @@ public class Controlador{
     }
     
     public void turno(int jug) {
-        juego.repartirCarta(jug);
-        actualizarCartas(jug);
+        turno = jug;
+        juego.repartirCarta(turno);
+        actualizarCartas();
         
     }
     

@@ -66,10 +66,10 @@ public class Mesa extends javax.swing.JFrame {
             case 8:
                 carta8.setVisible(true);
                 break;
-             case (9):
+             case 9:
                 carta9.setVisible(true);
                 break;
-            case (10):
+            case 10:
                 carta10.setVisible(true);
                 break;
         }
@@ -77,7 +77,7 @@ public class Mesa extends javax.swing.JFrame {
     
     public void hideCarta(int c){
         switch (c){
-            case (1):
+            case 1:
                 carta1.setVisible(false);
                 break;
             case 2:
@@ -104,7 +104,7 @@ public class Mesa extends javax.swing.JFrame {
              case 9:
                 carta9.setVisible(false);
                 break;
-            case (10):
+            case 10:
                 carta10.setVisible(false);
                 break;
         }
@@ -198,6 +198,11 @@ public class Mesa extends javax.swing.JFrame {
         pedirCarta.setForeground(new java.awt.Color(255, 255, 255));
         pedirCarta.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         pedirCarta.setText("Pedir carta");
+        pedirCarta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pedirCartaMouseClicked(evt);
+            }
+        });
         getContentPane().add(pedirCarta);
         pedirCarta.setBounds(170, 80, 150, 90);
 
@@ -500,6 +505,11 @@ public class Mesa extends javax.swing.JFrame {
     private void carta10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta10MouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_carta10MouseReleased
+
+    private void pedirCartaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pedirCartaMouseClicked
+        // TODO add your handling code here:
+        controlador.pedirCarta();
+    }//GEN-LAST:event_pedirCartaMouseClicked
 
     private Controlador controlador;
     // Variables declaration - do not modify//GEN-BEGIN:variables
