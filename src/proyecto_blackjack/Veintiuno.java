@@ -10,8 +10,7 @@ package proyecto_blackjack;
  */
 public class Veintiuno {
     public static void main(String args[]) {
-        Juego juego = new Juego();
-        Controlador controlador = new Controlador(juego);
-        //controlador.jugar();
+        Controlador controlador = new Controlador();
+        controlador.iniciar();
     }
 }

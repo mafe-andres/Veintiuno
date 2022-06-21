@@ -8,6 +8,7 @@ public class Mazo {
   ArrayList<Carta> mazo = new ArrayList<Carta>();
 
   public void iniciarBaraja(){
+      mazo.clear(); //Se limpia por si hay cartas
     for (int i = 1; i < 14; i++) {
       Carta cartaNueva = new Carta(0, i);
       mazo.add(cartaNueva);

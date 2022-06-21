@@ -20,11 +20,11 @@ public class Juego {
   //Deberia de iniciar la baraja y controlar las rondas (preguntar si quiere jugar otra ronda)
   public void jugar(){
     mazo.iniciarBaraja();
-    int jugar = 0;
-    int a = 0;
+    int jugar = 0; // ?
+    int a = 0; // La opcion
     while(jugar<5){
       ronda();
-      System.out.println("Quiere jugar otra vez: \n1. Si\t2.No\n");
+      //System.out.println("Quiere jugar otra vez: \n1. Si\t2.No\n");
       a = capt.nextInt();
       if(a == 1){
         jugar = 4;
@@ -49,7 +49,7 @@ public class Juego {
       verificar(jugador);
     }
   }
-
+  
 //Debe de hacer los turnos y despues ver cual es el ganador
   public void ronda(){
       jugador1.setTermino(false); 
@@ -58,7 +58,7 @@ public class Juego {
       jugador1.getMano().add(mazo.getCarta());
       jugador2.getMano().add(mazo.getCarta());
       jugador2.getMano().add(mazo.getCarta());
-      while(true){
+      while(true){ // Dont repeat yourself DRY
         if(jugador1.getTermino() == false){
           System.out.println("Jugador 1");
           mostrarCartas(jugador1);

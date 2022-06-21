@@ -6,13 +6,15 @@ public class Controlador{
     private Inicio inicio;
     private Jugadores jugadores;
     
-    public Controlador(Juego juego) {
-        this.juego = juego;
+    public Controlador() {
+        this.juego = new Juego();
+    }
+    public void iniciar(){
         inicio = new Inicio(this);
         inicio.setVisible(true);
     }
-    
-     public void jugar(){
+    // Comienza el ciclo principal del programa
+    public void jugar() {
         juego.jugar();
     }
      
@@ -27,5 +29,8 @@ public class Controlador{
         juego.setNombres(jugador1, jugador2);
         mesa = new Mesa(this);
         mesa.setVisible(true);
+        mesa.setTextJug1(jugador1);
+        mesa.setTextJug2(jugador2);
+        
     }
 }
