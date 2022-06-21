@@ -1,11 +1,15 @@
 package proyecto_blackjack;
+import java.util.ArrayList;
 
 public class Controlador{
+    final int CARTASXMES = 10;
+    //final int CARTASXJUG = 5;
     private Juego juego;
     private Mesa mesa;
     private Inicio inicio;
     private Jugadores jugadores;
     private JugarDeNuevo jugarDeNuevo;
+    private int turno;
     private boolean fin;
     
     public Controlador() {
@@ -14,12 +18,16 @@ public class Controlador{
     public void iniciar(){
         inicio = new Inicio(this);
         inicio.setVisible(true);
+        turno =0;
         // Preguntar quien va primero TODO
     }
     // Comienza el ciclo principal del programa
     public void jugar() {
         // Probar
-        while (ronda()) {}
+        juego.inicializarJuego();
+        turno =1;
+        iniciarRondas();
+        //while (ronda()) {}
         finalizar();
     }
      
@@ -39,22 +47,60 @@ public class Controlador{
         
     }
     
-    public boolean ronda() {
-        fin = true;
+    private void actualizarCartas(int turno) {
+        ArrayList<Integer> cartas = juego.getCartasMesa();
+        int numPalo = cartas.get(0);
+        /*for (int i = 0; i< CARTASXMES; i++) {
+            numPalo= cartas.get(i);
+            if (numPalo[0]!=0){
+                System.out.println(getNombreImagen(numPalo[0],numPalo[1]));
+              mesa.iconCarta(i+1,getNombreImagen(numPalo[0],numPalo[1]));
+              mesa.showCarta(1+1);
+            } else {
+                mesa.hideCarta(i);
+            }
+        }*/
+        System.out.println(numPalo);
+        mesa.iconCarta(1,getNombreImagen(cartas.get(0),cartas.get(1)));
+        mesa.hideCarta(2);
+        //mesa.iconCarta(2,getNombreImagen(numPalo[0],numPalo[1]));
+    }
+    
+     public String getNombreImagen(int numero, int palo){
+      String nombre = "";
+      
+        switch(palo){
+            case 0:
+                nombre = "/Imagenes/" + numero + "treboles.png";
+                break;
+            case 1:
+                nombre = "/Imagenes/" + numero + "picas.png";
+                break;
+            case 2:
+                nombre = "/Imagenes/" + numero + "corazones.png";
+                break;
+            case 3:
+                nombre = "/Imagenes/" + numero + "diamantes.png";
+                break;
+        }
+        System.out.println(nombre);
+      return nombre;
+  }
+     
+    public boolean iniciarRondas() {
+        fin = false;
         juego.inicializarRonda();
         turno(1);
-        turno(2);
-        jugarDeNuevo = new JugarDeNuevo();
-        jugarDeNuevo.setVisible(true);
-        return true;
+        //turno(2);
+        //jugarDeNuevo = new JugarDeNuevo();
+        //jugarDeNuevo.setVisible(true);
+        return false;
     }
     
     public void turno(int jug) {
-        if (jug == 1) { // turno jug1
-            
-        } else { // turno jug2
-            
-        }
+        juego.repartirCarta(jug);
+        actualizarCartas(jug);
+        
     }
     
     public void finalizar() {

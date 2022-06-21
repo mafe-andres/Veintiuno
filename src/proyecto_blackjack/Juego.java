@@ -1,15 +1,14 @@
 package proyecto_blackjack;
 
-import java.util.Scanner;
-
+import java.util.ArrayList;
 
 public class Juego {
-
+  final int CARTASXMES = 10;
+  final int CARTASXJUG = 5;
   private Mazo mazo;
   Jugador jugador1;
   Jugador jugador2;
   private int victorias1, victorias2;
-  //Scanner capt = new Scanner(System.in);
 
   public Juego() {
     this.jugador1 = new Jugador();
@@ -27,6 +26,9 @@ public class Juego {
   public void inicializarRonda() {
       jugador1.desecharMano();
       jugador2.desecharMano();
+      //prueba abajo
+      //repartirCarta(jugador1);
+      //repartirCarta(jugador1);
   }
   
   public void setNombres(String jugador1, String jugador2){
@@ -34,16 +36,47 @@ public class Juego {
     this.jugador2.setNombre(jugador2);
   }
   
-  public void repartirCarta(Jugador jugador){
-    jugador.recibirCarta(mazo.getCarta());
+  public void repartirCarta(int jugador){
+    Carta card = mazo.getCarta();
+    if (jugador ==1) {
+        jugador1.recibirCarta(card);
+    } else {
+        jugador2.recibirCarta(card);
+    }
+    System.out.println(card.numero);
   }
   
   
-  // Metodo de prueba
-  public void mostrarCartas(Jugador jugador){
-    for(int i=0;i<jugador.getMano().size();i++){
-      System.out.println("Carta:"+jugador.getMano().get(i).getNumero()+" Palo: "+jugador.getMano().get(i).getPalo());
+  // Devuelve las cartas que hay en la mesa actualmente organizadas en un arraylist
+  // De la pos 0-9 jugador1, 10-19 jugador2. 
+  //Vienen organizadas primero el numero y luego el palo de cada carta y en orden que se han pedido.
+  public ArrayList<Integer> getCartasMesa(){
+    ArrayList<Integer> cartas = new ArrayList<Integer>();
+    int numero =0;
+    int palo =0;
+    for(int i=0;i<CARTASXJUG;i++){
+      if (i<jugador1.getMano().size()){
+        numero = jugador1.getMano().get(i).getNumero();
+        palo = jugador1.getMano().get(i).getPalo();
+      } else {
+          numero= 0;
+          palo= 0;
+      }
+      cartas.add(i*2,numero);
+      cartas.add(i*2+1,palo);
     }
+    for(int i=0;i<CARTASXJUG;i++){
+      if (i<jugador2.getMano().size()){
+        numero = jugador2.getMano().get(i).getNumero();
+        palo = jugador2.getMano().get(i).getPalo();
+      } else {
+          numero= 0;
+          palo= 0;
+      }
+      cartas.add((i*2)+5,numero);
+      cartas.add((i*2+1)+5,palo);
+    }
+    return cartas;
   }
 
   public void cambiarAs(Jugador jugador, int pos) {

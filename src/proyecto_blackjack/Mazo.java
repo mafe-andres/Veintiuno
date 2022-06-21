@@ -9,20 +9,21 @@ public class Mazo {
 
   public void iniciarBaraja(){
       mazo.clear(); //Se limpia por si hay cartas
+      Carta cartaNueva;
     for (int i = 1; i < 14; i++) {
-      Carta cartaNueva = new Carta(0, i);
+      cartaNueva = new Carta(i, 0);
       mazo.add(cartaNueva);
     }
     for (int i = 1; i < 14; i++) {
-      Carta cartaNueva = new Carta(1, i);
+      cartaNueva = new Carta(i, 1);
       mazo.add(cartaNueva);
     }
     for (int i = 1; i < 14; i++) {
-      Carta cartaNueva = new Carta(2, i);
+      cartaNueva = new Carta(i, 2);
       mazo.add(cartaNueva);
     }
     for (int i = 1; i < 14; i++) {
-      Carta cartaNueva = new Carta(3, i);
+      cartaNueva = new Carta(i, 3);
       mazo.add(cartaNueva);
     }
     Collections.shuffle(mazo);

@@ -1,7 +1,6 @@
 package proyecto_blackjack;
 
 import java.util.ArrayList; 
-import java.util.Scanner;
 
 public class Jugador {
 
@@ -9,9 +8,7 @@ public class Jugador {
   private Boolean termino = false;
   private int victorias = 0;
   private ArrayList<Carta> mano = new ArrayList<Carta>();
-  //private Boolean AsJugador = false;
 
-  Scanner capt = new Scanner(System.in);
 
   public Jugador() {
     termino = false;
@@ -52,16 +49,8 @@ public class Jugador {
   }
 
   public ArrayList<Carta> getMano(){
-  return mano;
+    return mano;
   }
-
-  //public boolean getAsJugador(){
-  //return AsJugador;
-  //}
-
-  //public void setAsJugador(boolean AsJugador){
-  //this.AsJugador = AsJugador;
-  //}
 
   public String getNombre(){
     return nombre;

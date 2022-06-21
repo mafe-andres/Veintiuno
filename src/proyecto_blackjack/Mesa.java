@@ -40,7 +40,7 @@ public class Mesa extends javax.swing.JFrame {
         nameJug2.setText(name);
     }
     
-    public void verCarta(int c){
+    public void showCarta(int c){
         switch (c){
             case 1:
                 carta1.setVisible(true);
@@ -66,18 +66,18 @@ public class Mesa extends javax.swing.JFrame {
             case 8:
                 carta8.setVisible(true);
                 break;
-             case 9:
+             case (9):
                 carta9.setVisible(true);
                 break;
-            case 10:
+            case (10):
                 carta10.setVisible(true);
                 break;
         }
     }
     
-    public void ocultarCarta(int c){
+    public void hideCarta(int c){
         switch (c){
-            case 1:
+            case (1):
                 carta1.setVisible(false);
                 break;
             case 2:
@@ -104,7 +104,7 @@ public class Mesa extends javax.swing.JFrame {
              case 9:
                 carta9.setVisible(false);
                 break;
-            case 10:
+            case (10):
                 carta10.setVisible(false);
                 break;
         }
