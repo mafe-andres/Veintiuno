@@ -39,7 +39,125 @@ public class Mesa extends javax.swing.JFrame {
     public void setTextJug2(String name){
         nameJug2.setText(name);
     }
-
+    
+    public void verCarta(int c){
+        switch (c){
+            case 1:
+                carta1.setVisible(true);
+                break;
+            case 2:
+                carta2.setVisible(true);
+                break;
+            case 3:
+                carta3.setVisible(true);
+                break;
+            case 4:
+                carta4.setVisible(true);
+                break;
+            case 5:
+                carta5.setVisible(true);
+                break;
+            case 6:
+                carta6.setVisible(true);
+                break;
+            case 7:
+                carta7.setVisible(true);
+                break;
+            case 8:
+                carta8.setVisible(true);
+                break;
+             case 9:
+                carta9.setVisible(true);
+                break;
+            case 10:
+                carta10.setVisible(true);
+                break;
+        }
+    }
+    
+    public void ocultarCarta(int c){
+        switch (c){
+            case 1:
+                carta1.setVisible(false);
+                break;
+            case 2:
+                carta2.setVisible(false);
+                break;
+            case 3:
+                carta3.setVisible(false);
+                break;
+            case 4:
+                carta4.setVisible(false);
+                break;
+            case 5:
+                carta5.setVisible(false);
+                break;
+            case 6:
+                carta6.setVisible(false);
+                break;
+            case 7:
+                carta7.setVisible(false);
+                break;
+            case 8:
+                carta8.setVisible(false);
+                break;
+             case 9:
+                carta9.setVisible(false);
+                break;
+            case 10:
+                carta10.setVisible(false);
+                break;
+        }
+    }
+    
+    public void iconCarta(int c, String icon){
+        ImageIcon icono = new ImageIcon(getClass().getResource(icon));
+        switch (c){
+            case 1:
+                carta1.setIcon(icono);
+                break;
+            case 2:
+                carta2.setIcon(icono);
+                break;
+            case 3:
+                carta3.setIcon(icono);
+                break;
+            case 4:
+                carta4.setIcon(icono);
+                break;
+            case 5:
+                carta5.setIcon(icono);
+                break;
+            case 6:
+                carta6.setIcon(icono);
+                break;
+            case 7:
+                carta7.setIcon(icono);
+                break;
+            case 8:
+                carta8.setIcon(icono);
+                break;
+             case 9:
+                carta9.setIcon(icono);
+                break;
+            case 10:
+                carta10.setIcon(icono);
+                break;
+        }
+    }
+    
+     public void verCartas2(){
+        carta1.setVisible(false);
+        carta2.setVisible(false);
+        carta3.setVisible(false);
+        carta4.setVisible(false);
+        carta5.setVisible(false);
+        carta6.setVisible(false);
+        carta7.setVisible(true);
+        carta8.setVisible(true);
+        carta9.setVisible(true);
+        carta10.setVisible(true);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,6 +167,8 @@ public class Mesa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ayuda = new javax.swing.JLabel();
+        pedirCarta = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         carta10 = new javax.swing.JLabel();
         carta9 = new javax.swing.JLabel();
@@ -68,6 +188,18 @@ public class Mesa extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(700, 460));
         setPreferredSize(new java.awt.Dimension(700, 460));
         getContentPane().setLayout(null);
+
+        ayuda.setForeground(new java.awt.Color(255, 255, 255));
+        ayuda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        ayuda.setText("Ayuda");
+        getContentPane().add(ayuda);
+        ayuda.setBounds(420, 100, 100, 70);
+
+        pedirCarta.setForeground(new java.awt.Color(255, 255, 255));
+        pedirCarta.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        pedirCarta.setText("Pedir carta");
+        getContentPane().add(pedirCarta);
+        pedirCarta.setBounds(170, 80, 150, 90);
 
         jButton2.setText("Iniciar Ronda");
         jButton2.setActionCommand("Inciar Ronda");
@@ -371,6 +503,7 @@ public class Mesa extends javax.swing.JFrame {
 
     private Controlador controlador;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ayuda;
     private javax.swing.JLabel carta1;
     private javax.swing.JLabel carta10;
     private javax.swing.JLabel carta2;
@@ -385,5 +518,6 @@ public class Mesa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nameJug1;
     private javax.swing.JLabel nameJug2;
+    private javax.swing.JLabel pedirCarta;
     // End of variables declaration//GEN-END:variables
 }

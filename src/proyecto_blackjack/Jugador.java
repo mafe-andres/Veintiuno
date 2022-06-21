@@ -9,7 +9,7 @@ public class Jugador {
   private Boolean termino = false;
   private int victorias = 0;
   private ArrayList<Carta> mano = new ArrayList<Carta>();
-  private Boolean AsJugador = false;
+  //private Boolean AsJugador = false;
 
   Scanner capt = new Scanner(System.in);
 
@@ -17,47 +17,29 @@ public class Jugador {
     termino = false;
   }
   
-  public boolean recibirCarta(){
-    System.out.print("Desea mas cartas:\n1. Si \n2. No\n"); // Esto es solo para probarlo por el momento
-    int a = capt.nextInt();
-    if(a == 1){
-      return true;
-    }else{
-      setTermino(true);
-      return false;
-    }
+  public void recibirCarta(Carta carta){
+    mano.add(carta);
   }
 
   public void desecharMano(){
     mano.clear();
   }
 
-  public int suma(boolean As){
+  public int suma(){
     int suma = 0;
     for(int i = 0; i < mano.size(); i++){
       if(mano.get(i).numero == 11 || mano.get(i).numero == 12 || mano.get(i).numero == 13){
         suma += 10;
       }else if(mano.get(i).numero == 1){
-        if(As == true){
-          suma += 11;
-        }else{
-          suma += 1;
-        }
-      }else{
-        suma += mano.get(i).numero;
+        suma += mano.get(i).getValor();
       }
     }
     return suma;
   }
 
-  public boolean verificarAs(){
-    boolean As = false;
-    for(int i = 0; i < mano.size(); i++){
-      if(mano.get(i).numero == 1){
-        As = true;
-      }
-    }
-    return As;
+  // Cambia el valor del As ubicado en mano.get(pos) 
+  public void cambiarAs(int pos){
+    mano.get(pos).setValorAs();
   }
 
 
@@ -73,13 +55,13 @@ public class Jugador {
   return mano;
   }
 
-  public boolean getAsJugador(){
-  return AsJugador;
-  }
+  //public boolean getAsJugador(){
+  //return AsJugador;
+  //}
 
-  public void setAsJugador(boolean AsJugador){
-  this.AsJugador = AsJugador;
-  }
+  //public void setAsJugador(boolean AsJugador){
+  //this.AsJugador = AsJugador;
+  //}
 
   public String getNombre(){
     return nombre;
