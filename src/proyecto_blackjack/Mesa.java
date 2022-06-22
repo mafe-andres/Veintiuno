@@ -5,6 +5,7 @@
  */
 package proyecto_blackjack;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Andy , Tonny
@@ -180,9 +181,14 @@ public class Mesa extends javax.swing.JFrame {
 
         ayuda.setForeground(new java.awt.Color(255, 255, 255));
         ayuda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        ayuda.setText("Ayuda");
+        ayuda.setText("¿Cómo jugar?");
+        ayuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ayudaMouseClicked(evt);
+            }
+        });
         getContentPane().add(ayuda);
-        ayuda.setBounds(420, 100, 100, 70);
+        ayuda.setBounds(420, 90, 140, 70);
 
         pedirCarta.setForeground(new java.awt.Color(255, 255, 255));
         pedirCarta.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -519,6 +525,16 @@ public class Mesa extends javax.swing.JFrame {
         // TODO add your handling code here:
         controlador.pedirCarta();
     }//GEN-LAST:event_pedirCartaMouseClicked
+
+    private void ayudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ayudaMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Este juego consiste en enfrentarse entre 2 jugadores comparando las cartas que estos tengan en su mano,\n" +
+"intentando conseguir 21 puntos o el número más cercano posible sin pasarse. El juego comienza dando 2\n" +
+"cartas a cada jugador, seguido de esto cada jugador por turnos podrá pedir una carta. Cuando el jugador ya no quiera\n" +
+"más cartas, dará pie a que el otro jugador pueda seguir pidiendo cartas. Cuando los 2 jugadores ya no quieran más\n" +
+"cartas, finalizará la ronda y se dará a conocer al ganador.","¿Cómo jugar?",JOptionPane.INFORMATION_MESSAGE);
+        
+    }//GEN-LAST:event_ayudaMouseClicked
 
     private void FinalizarTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarTurnoActionPerformed
         // TODO add your handling code here:
