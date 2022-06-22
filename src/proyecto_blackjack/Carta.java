@@ -1,7 +1,5 @@
 package proyecto_blackjack;
 
-import javax.swing.ImageIcon;
-
 public class Carta {
   final int As1 = 1;
   final int As11 = 11;
@@ -13,7 +11,6 @@ public class Carta {
     this.palo = palo;
     this.numero = numero;
     this.valor = numero;
-    //System.out.println(getClass().getResource(getNombreImagen(palo, numero)));
   }
   
   public int getPalo(){

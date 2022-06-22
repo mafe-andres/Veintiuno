@@ -3,14 +3,13 @@ import java.util.ArrayList;
 
 public class Controlador{
     final int CARTASXMES = 10;
-    //final int CARTASXJUG = 5;
     private Juego juego;
     private Mesa mesa;
     private Inicio inicio;
     private Jugadores jugadores;
     private JugarDeNuevo jugarDeNuevo;
     private int turno;
-    private boolean fin;
+    //private boolean fin;
     
     public Controlador() {
         this.juego = new Juego();
@@ -27,7 +26,6 @@ public class Controlador{
         juego.inicializarJuego();
         turno =1;
         iniciarRondas();
-        //while (ronda()) {}
         finalizar();
     }
      
@@ -58,10 +56,11 @@ public class Controlador{
         int palo = cartas.get(0);
         for (int i = 0; i< CARTASXMES; i++) {
             num= cartas.get(i*2);
-            palo = cartas.get(i*2+1);
+            palo = cartas.get((i*2)+1);
             if (num!=0){
               mesa.iconCarta(i+1,getNombreImagen(num,palo));
               mesa.showCarta(i+1);
+              System.out.println("Show Carta "+ i);
             } else {
                 mesa.hideCarta(i+1);
             }
@@ -90,10 +89,7 @@ public class Controlador{
   }
      
     public boolean iniciarRondas() {
-        fin = false;
-        juego.inicializarRonda();
         turno(1);
-        //turno(2);
         //jugarDeNuevo = new JugarDeNuevo();
         //jugarDeNuevo.setVisible(true);
         return false;
@@ -101,9 +97,19 @@ public class Controlador{
     
     public void turno(int jug) {
         turno = jug;
-        juego.repartirCarta(turno);
+        if (turno ==3){
+            // Calcular ganador y posiblemente mostrar boton siguiente ronda.
+        } else if (turno ==4){
+            turno = 1;
+        } 
+        if (turno ==1){
+            juego.inicializarRonda();
+        }
         actualizarCartas();
-        
+    }
+    
+    public void nextTurno(){
+        turno(turno+1);
     }
     
     public void finalizar() {

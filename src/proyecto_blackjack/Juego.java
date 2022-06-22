@@ -26,9 +26,6 @@ public class Juego {
   public void inicializarRonda() {
       jugador1.desecharMano();
       jugador2.desecharMano();
-      //prueba abajo
-      //repartirCarta(jugador1);
-      //repartirCarta(jugador1);
   }
   
   public void setNombres(String jugador1, String jugador2){
@@ -38,12 +35,11 @@ public class Juego {
   
   public void repartirCarta(int jugador){
     Carta card = mazo.getCarta();
-    if (jugador ==1) {
+    if (jugador ==1 && jugador1.getMano().size()<=CARTASXJUG) {
         jugador1.recibirCarta(card);
-    } else {
+    } else if(jugador ==2 && jugador2.getMano().size()<=CARTASXJUG) {
         jugador2.recibirCarta(card);
     }
-    System.out.println(card.numero);
   }
   
   
@@ -51,10 +47,10 @@ public class Juego {
   // De la pos 0-9 jugador1, 10-19 jugador2. 
   //Vienen organizadas primero el numero y luego el palo de cada carta y en orden que se han pedido.
   public ArrayList<Integer> getCartasMesa(){
-    ArrayList<Integer> cartas = new ArrayList<Integer>();
+    ArrayList<Integer> cartas = new ArrayList<Integer>(2*CARTASXMES);
     int numero =0;
     int palo =0;
-    for(int i=0;i<CARTASXJUG;i++){
+    for(int i=0; i<CARTASXJUG;i++){
       if (i<jugador1.getMano().size()){
         numero = jugador1.getMano().get(i).getNumero();
         palo = jugador1.getMano().get(i).getPalo();
@@ -62,8 +58,8 @@ public class Juego {
           numero= 0;
           palo= 0;
       }
-      cartas.add(i*2,numero);
-      cartas.add(i*2+1,palo);
+      cartas.add(numero);
+      cartas.add(palo);
     }
     for(int i=0;i<CARTASXJUG;i++){
       if (i<jugador2.getMano().size()){
@@ -73,8 +69,8 @@ public class Juego {
           numero= 0;
           palo= 0;
       }
-      cartas.add((i*2)+5,numero);
-      cartas.add((i*2+1)+5,palo);
+      cartas.add(numero);
+      cartas.add(palo);
     }
     return cartas;
   }

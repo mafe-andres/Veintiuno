@@ -7,7 +7,7 @@ package proyecto_blackjack;
 import javax.swing.ImageIcon;
 /**
  *
- * @author Andy
+ * @author Andy , Tonny
  */
 public class Mesa extends javax.swing.JFrame {
 
@@ -146,18 +146,6 @@ public class Mesa extends javax.swing.JFrame {
         }
     }
     
-     public void verCartas2(){
-        carta1.setVisible(false);
-        carta2.setVisible(false);
-        carta3.setVisible(false);
-        carta4.setVisible(false);
-        carta5.setVisible(false);
-        carta6.setVisible(false);
-        carta7.setVisible(true);
-        carta8.setVisible(true);
-        carta9.setVisible(true);
-        carta10.setVisible(true);
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -169,7 +157,8 @@ public class Mesa extends javax.swing.JFrame {
 
         ayuda = new javax.swing.JLabel();
         pedirCarta = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        FinalizarTurno = new javax.swing.JButton();
+        NuevoJuego = new javax.swing.JButton();
         carta10 = new javax.swing.JLabel();
         carta9 = new javax.swing.JLabel();
         carta8 = new javax.swing.JLabel();
@@ -206,16 +195,36 @@ public class Mesa extends javax.swing.JFrame {
         getContentPane().add(pedirCarta);
         pedirCarta.setBounds(170, 80, 150, 90);
 
-        jButton2.setText("Iniciar Ronda");
-        jButton2.setActionCommand("Inciar Ronda");
-        jButton2.setName("Repartir"); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        FinalizarTurno.setBackground(new java.awt.Color(0, 0, 0));
+        FinalizarTurno.setForeground(new java.awt.Color(255, 255, 255));
+        FinalizarTurno.setText("Finalizar turno");
+        FinalizarTurno.setActionCommand("Inciar Ronda");
+        FinalizarTurno.setName("Repartir"); // NOI18N
+        FinalizarTurno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FinalizarTurnoMouseClicked(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(290, 370, 120, 22);
+        FinalizarTurno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FinalizarTurnoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(FinalizarTurno);
+        FinalizarTurno.setBounds(290, 320, 120, 22);
+
+        NuevoJuego.setBackground(new java.awt.Color(0, 0, 0));
+        NuevoJuego.setForeground(new java.awt.Color(255, 255, 255));
+        NuevoJuego.setText("Nuevo Juego");
+        NuevoJuego.setActionCommand("Inciar Ronda");
+        NuevoJuego.setName("Repartir"); // NOI18N
+        NuevoJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NuevoJuegoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(NuevoJuego);
+        NuevoJuego.setBounds(290, 370, 120, 22);
 
         carta10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -378,9 +387,9 @@ public class Mesa extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void NuevoJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoJuegoActionPerformed
         controlador.jugar();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_NuevoJuegoActionPerformed
 
     private void carta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MouseClicked
         // TODO add your handling code here:
@@ -511,8 +520,19 @@ public class Mesa extends javax.swing.JFrame {
         controlador.pedirCarta();
     }//GEN-LAST:event_pedirCartaMouseClicked
 
+    private void FinalizarTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarTurnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FinalizarTurnoActionPerformed
+
+    private void FinalizarTurnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FinalizarTurnoMouseClicked
+        // TODO add your handling code here:
+        controlador.nextTurno();
+    }//GEN-LAST:event_FinalizarTurnoMouseClicked
+
     private Controlador controlador;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton FinalizarTurno;
+    private javax.swing.JButton NuevoJuego;
     private javax.swing.JLabel ayuda;
     private javax.swing.JLabel carta1;
     private javax.swing.JLabel carta10;
@@ -524,7 +544,6 @@ public class Mesa extends javax.swing.JFrame {
     private javax.swing.JLabel carta7;
     private javax.swing.JLabel carta8;
     private javax.swing.JLabel carta9;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nameJug1;
     private javax.swing.JLabel nameJug2;
