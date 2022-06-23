@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package proyecto_blackjack;
+import java.util.HashSet;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /**
@@ -585,6 +586,7 @@ public class Mesa extends javax.swing.JFrame {
 
     private void PlantarseJug1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantarseJug1MouseClicked
         // TODO add your handling code here:
+        controlador.setPlantarse(1);
         controlador.nextTurno();
         PlantarseJug1.setVisible(false);
     }//GEN-LAST:event_PlantarseJug1MouseClicked
@@ -595,6 +597,7 @@ public class Mesa extends javax.swing.JFrame {
 
     private void PlantarseJug2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantarseJug2MouseClicked
         // TODO add your handling code here:
+        controlador.setPlantarse(2);
         controlador.nextTurno();
         PlantarseJug1.setVisible(false);
     }//GEN-LAST:event_PlantarseJug2MouseClicked

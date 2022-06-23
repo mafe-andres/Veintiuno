@@ -9,7 +9,7 @@ public class Controlador{
     private Jugadores jugadores;
     private JugarDeNuevo jugarDeNuevo;
     private int turno;
-    private boolean[] plantarse = new boolean[2];
+    private boolean[] plantarse = new boolean[3]; // Se usa 3 para usar pos1 y pos2
     private boolean masCartas;
     
     public Controlador() {
@@ -18,15 +18,14 @@ public class Controlador{
     public void iniciar(){
         inicio = new Inicio(this);
         inicio.setVisible(true);
-        turno =0;
+        turno(0);
     }
     
     // Comienza el ciclo principal del programa
     public void jugar() {
         // Probar
         juego.inicializarJuego();
-        turno =1;
-        iniciarRondas();
+        iniciarRonda();
         finalizar();
     }
      
@@ -109,24 +108,27 @@ public class Controlador{
       return nombre;
   }
      
-    public boolean iniciarRondas() {
+    public void iniciarRonda() {
+        plantarse[0] = false;
+        plantarse[1] = false;
+        juego.inicializarRonda();
         turno(1);
         //jugarDeNuevo = new JugarDeNuevo();
         //jugarDeNuevo.setVisible(true);
-        return false;
     }
     
     public void turno(int jug) {
         turno = jug;
-        mesa.mostrarTurno();
         mesa.mostrarPlantarse();
+        mesa.mostrarTurno();
+        
         if (turno == 3){
             // Calcular ganador y posiblemente mostrar boton siguiente ronda.
         } else if (turno == 4){
             turno = 1;
         } 
         if (turno == 1){
-            juego.inicializarRonda();
+            
             masCartas = true;
         }
         if (turno == 2) {
@@ -136,12 +138,32 @@ public class Controlador{
         actualizarCartas();
     }
     
-    public void setPlantarse(int posicion, boolean plantar){
-        this.plantarse[posicion] = plantar;
+    public void setPlantarse(int posicion){
+        this.plantarse[posicion] = true;
     }
     
     public void nextTurno(){
-        turno(turno+1);
+        if (turno == 1) {
+            if (plantarse[2] == true){
+                if (plantarse[1] == true) {
+                    turno(3);
+                } else {
+                    turno(1);
+                }
+            } else {
+                turno(2);
+            }
+        } else if (turno ==2) {
+            if (plantarse[1] == true){
+                if (plantarse[2] == true) {
+                    turno(3);
+                } else {
+                    turno(2);
+                }
+            } else {
+                turno(1);
+            }
+        }
     }
     
     public void finalizar() {
