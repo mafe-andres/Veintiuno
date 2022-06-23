@@ -9,7 +9,8 @@ public class Controlador{
     private Jugadores jugadores;
     private JugarDeNuevo jugarDeNuevo;
     private int turno;
-    //private boolean fin;
+    private boolean[] plantarse = new boolean[2];
+    private boolean masCartas;
     
     public Controlador() {
         this.juego = new Juego();
@@ -18,8 +19,8 @@ public class Controlador{
         inicio = new Inicio(this);
         inicio.setVisible(true);
         turno =0;
-        // Preguntar quien va primero TODO
     }
+    
     // Comienza el ciclo principal del programa
     public void jugar() {
         // Probar
@@ -47,7 +48,27 @@ public class Controlador{
     
     public void pedirCarta() {
         juego.repartirCarta(turno);
+        masCartas = false;
         actualizarCartas();
+    }
+    
+    public int getTurno(){
+        return turno;
+    }
+    
+    public String getCartaOculta(int jug){
+        ArrayList<Integer> cartas = juego.getCartasMesa();
+        int num;
+        int palo;
+        if (jug == 1) {
+            num = cartas.get(0);
+            palo = cartas.get(1);
+        } else{
+            num = cartas.get(10); //Pos10 inician cartas jug2
+            palo = cartas.get(11);
+        }
+        return getNombreImagen(num,palo);
+        
     }
     
     private void actualizarCartas() {
@@ -60,11 +81,12 @@ public class Controlador{
             if (num!=0){
               mesa.iconCarta(i+1,getNombreImagen(num,palo));
               mesa.showCarta(i+1);
-              System.out.println("Show Carta "+ i);
             } else {
                 mesa.hideCarta(i+1);
             }
         }
+        mesa.iconCarta(1,"/Imagenes/back.png");
+        mesa.iconCarta(6,"/Imagenes/back.png");
     }
     
      public String getNombreImagen(int numero, int palo){
@@ -84,7 +106,6 @@ public class Controlador{
                 nombre = "/Imagenes/" + numero + "diamantes.png";
                 break;
         }
-        System.out.println(nombre);
       return nombre;
   }
      
@@ -97,15 +118,26 @@ public class Controlador{
     
     public void turno(int jug) {
         turno = jug;
-        if (turno ==3){
+        mesa.mostrarTurno();
+        mesa.mostrarPlantarse();
+        if (turno == 3){
             // Calcular ganador y posiblemente mostrar boton siguiente ronda.
-        } else if (turno ==4){
+        } else if (turno == 4){
             turno = 1;
         } 
-        if (turno ==1){
+        if (turno == 1){
             juego.inicializarRonda();
+            masCartas = true;
         }
+        if (turno == 2) {
+            masCartas=true;
+        }
+        
         actualizarCartas();
+    }
+    
+    public void setPlantarse(int posicion, boolean plantar){
+        this.plantarse[posicion] = plantar;
     }
     
     public void nextTurno(){

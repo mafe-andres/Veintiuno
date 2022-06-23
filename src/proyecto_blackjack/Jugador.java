@@ -25,11 +25,7 @@ public class Jugador {
   public int suma(){
     int suma = 0;
     for(int i = 0; i < mano.size(); i++){
-      if(mano.get(i).numero == 11 || mano.get(i).numero == 12 || mano.get(i).numero == 13){
-        suma += 10;
-      }else if(mano.get(i).numero == 1){
-        suma += mano.get(i).getValor();
-      }
+      suma += mano.get(i).getValor();
     }
     return suma;
   }

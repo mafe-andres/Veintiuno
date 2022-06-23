@@ -19,26 +19,34 @@ public class Mesa extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         initComponents();
         this.controlador = controlador;
-        ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/back.png"));
-        ImageIcon front = new ImageIcon(getClass().getResource("/Imagenes/13picas.png"));
-        carta1.setIcon(imagen);
-        carta2.setIcon(front);
-        carta3.setIcon(front);
-        carta4.setIcon(front);
-        carta5.setIcon(front);
-        carta6.setIcon(imagen);
-        carta7.setIcon(front);
-        carta8.setIcon(front);
-        carta9.setIcon(front);
-        carta10.setIcon(front);
     }
     
     public void setTextJug1(String name){
         nameJug1.setText(name);
+        jugador1 = name;
     }
     
     public void setTextJug2(String name){
         nameJug2.setText(name);
+        jugador2 = name;
+    }
+    
+    public void mostrarTurno(){
+        if(controlador.getTurno() == 1){
+            JOptionPane.showMessageDialog(null, "Turno de " + jugador1,"Turno",JOptionPane.INFORMATION_MESSAGE);
+        }else if(controlador.getTurno() == 2){
+            JOptionPane.showMessageDialog(null, "Turno de " + jugador2,"Turno",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
+    public void mostrarPlantarse(){
+        if(controlador.getTurno() == 1){
+            PlantarseJug1.setVisible(true);
+            PlantarseJug2.setVisible(false);
+        }else if(controlador.getTurno() == 2){
+            PlantarseJug2.setVisible(true);
+            PlantarseJug1.setVisible(false);
+        }
     }
     
     public void showCarta(int c){
@@ -158,7 +166,8 @@ public class Mesa extends javax.swing.JFrame {
 
         ayuda = new javax.swing.JLabel();
         pedirCarta = new javax.swing.JLabel();
-        FinalizarTurno = new javax.swing.JButton();
+        PlantarseJug2 = new javax.swing.JButton();
+        PlantarseJug1 = new javax.swing.JButton();
         NuevoJuego = new javax.swing.JButton();
         carta10 = new javax.swing.JLabel();
         carta9 = new javax.swing.JLabel();
@@ -175,7 +184,7 @@ public class Mesa extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(700, 460));
+        setMinimumSize(new java.awt.Dimension(700, 468));
         setPreferredSize(new java.awt.Dimension(700, 460));
         getContentPane().setLayout(null);
 
@@ -201,23 +210,41 @@ public class Mesa extends javax.swing.JFrame {
         getContentPane().add(pedirCarta);
         pedirCarta.setBounds(170, 80, 150, 90);
 
-        FinalizarTurno.setBackground(new java.awt.Color(0, 0, 0));
-        FinalizarTurno.setForeground(new java.awt.Color(255, 255, 255));
-        FinalizarTurno.setText("Finalizar turno");
-        FinalizarTurno.setActionCommand("Inciar Ronda");
-        FinalizarTurno.setName("Repartir"); // NOI18N
-        FinalizarTurno.addMouseListener(new java.awt.event.MouseAdapter() {
+        PlantarseJug2.setBackground(new java.awt.Color(0, 0, 0));
+        PlantarseJug2.setForeground(new java.awt.Color(255, 255, 255));
+        PlantarseJug2.setText("Plantarse");
+        PlantarseJug2.setActionCommand("Inciar Ronda");
+        PlantarseJug2.setName("Repartir"); // NOI18N
+        PlantarseJug2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                FinalizarTurnoMouseClicked(evt);
+                PlantarseJug2MouseClicked(evt);
             }
         });
-        FinalizarTurno.addActionListener(new java.awt.event.ActionListener() {
+        PlantarseJug2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FinalizarTurnoActionPerformed(evt);
+                PlantarseJug2ActionPerformed(evt);
             }
         });
-        getContentPane().add(FinalizarTurno);
-        FinalizarTurno.setBounds(290, 320, 120, 22);
+        getContentPane().add(PlantarseJug2);
+        PlantarseJug2.setBounds(530, 400, 90, 22);
+
+        PlantarseJug1.setBackground(new java.awt.Color(0, 0, 0));
+        PlantarseJug1.setForeground(new java.awt.Color(255, 255, 255));
+        PlantarseJug1.setText("Plantarse");
+        PlantarseJug1.setActionCommand("Inciar Ronda");
+        PlantarseJug1.setName("Repartir"); // NOI18N
+        PlantarseJug1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PlantarseJug1MouseClicked(evt);
+            }
+        });
+        PlantarseJug1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlantarseJug1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(PlantarseJug1);
+        PlantarseJug1.setBounds(80, 400, 90, 22);
 
         NuevoJuego.setBackground(new java.awt.Color(0, 0, 0));
         NuevoJuego.setForeground(new java.awt.Color(255, 255, 255));
@@ -369,6 +396,11 @@ public class Mesa extends javax.swing.JFrame {
                 carta1MouseReleased(evt);
             }
         });
+        carta1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                carta1PropertyChange(evt);
+            }
+        });
         getContentPane().add(carta1);
         carta1.setBounds(68, 305, 50, 80);
 
@@ -394,6 +426,8 @@ public class Mesa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NuevoJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoJuegoActionPerformed
+        PlantarseJug1.setVisible(false);
+        PlantarseJug2.setVisible(false);
         controlador.jugar();
     }//GEN-LAST:event_NuevoJuegoActionPerformed
 
@@ -403,8 +437,10 @@ public class Mesa extends javax.swing.JFrame {
 
     private void carta1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MousePressed
         // TODO add your handling code here:
-        ImageIcon front = new ImageIcon(getClass().getResource("/Imagenes/11corazones.png"));
-        carta1.setIcon(front);
+        if(controlador.getTurno() == 1){
+            ImageIcon front = new ImageIcon(getClass().getResource(controlador.getCartaOculta(1)));
+            carta1.setIcon(front);
+        }
     }//GEN-LAST:event_carta1MousePressed
 
     private void carta1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MouseReleased
@@ -467,10 +503,16 @@ public class Mesa extends javax.swing.JFrame {
 
     private void carta6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta6MousePressed
         // TODO add your handling code here:
+        if(controlador.getTurno() == 2){
+            ImageIcon front = new ImageIcon(getClass().getResource(controlador.getCartaOculta(2)));
+            carta6.setIcon(front);
+        }
     }//GEN-LAST:event_carta6MousePressed
 
     private void carta6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta6MouseReleased
         // TODO add your handling code here:
+        ImageIcon back = new ImageIcon(getClass().getResource("/Imagenes/back.png"));
+        carta6.setIcon(back);
     }//GEN-LAST:event_carta6MouseReleased
 
     private void carta7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta7MouseClicked
@@ -524,6 +566,7 @@ public class Mesa extends javax.swing.JFrame {
     private void pedirCartaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pedirCartaMouseClicked
         // TODO add your handling code here:
         controlador.pedirCarta();
+        controlador.nextTurno();
     }//GEN-LAST:event_pedirCartaMouseClicked
 
     private void ayudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ayudaMouseClicked
@@ -536,19 +579,37 @@ public class Mesa extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ayudaMouseClicked
 
-    private void FinalizarTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarTurnoActionPerformed
+    private void PlantarseJug1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlantarseJug1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_FinalizarTurnoActionPerformed
+    }//GEN-LAST:event_PlantarseJug1ActionPerformed
 
-    private void FinalizarTurnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FinalizarTurnoMouseClicked
+    private void PlantarseJug1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantarseJug1MouseClicked
         // TODO add your handling code here:
         controlador.nextTurno();
-    }//GEN-LAST:event_FinalizarTurnoMouseClicked
+        PlantarseJug1.setVisible(false);
+    }//GEN-LAST:event_PlantarseJug1MouseClicked
+
+    private void carta1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_carta1PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_carta1PropertyChange
+
+    private void PlantarseJug2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantarseJug2MouseClicked
+        // TODO add your handling code here:
+        controlador.nextTurno();
+        PlantarseJug1.setVisible(false);
+    }//GEN-LAST:event_PlantarseJug2MouseClicked
+
+    private void PlantarseJug2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlantarseJug2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PlantarseJug2ActionPerformed
 
     private Controlador controlador;
+    private String jugador1;
+    private String jugador2;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton FinalizarTurno;
     private javax.swing.JButton NuevoJuego;
+    private javax.swing.JButton PlantarseJug1;
+    private javax.swing.JButton PlantarseJug2;
     private javax.swing.JLabel ayuda;
     private javax.swing.JLabel carta1;
     private javax.swing.JLabel carta10;

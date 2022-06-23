@@ -10,7 +10,11 @@ public class Carta {
   public Carta(int numero, int palo) {
     this.palo = palo;
     this.numero = numero;
-    this.valor = numero;
+    if(numero == 11 || numero == 12 || numero == 13){
+      valor = 10;
+    }else{
+        valor = numero;
+    }
   }
   
   public int getPalo(){
