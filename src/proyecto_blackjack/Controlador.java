@@ -65,12 +65,11 @@ public class Controlador{
                 mesa.hideCarta(i+1);
             }
         }
-        mesa.iconCarta(1,"/Imagenes/back.png");
-        mesa.iconCarta(6,"/Imagenes/back.png");
     }
     
      public String getNombreImagen(int numero, int palo){
       String nombre = "";
+      
         switch(palo){
             case 0:
                 nombre = "/Imagenes/" + numero + "treboles.png";
@@ -88,20 +87,6 @@ public class Controlador{
         System.out.println(nombre);
       return nombre;
   }
-     
-  public String getCartaOculta(int jug){
-        ArrayList<Integer> cartas = juego.getCartasMesa();
-        int num;
-        int palo;
-        if (jug == 1) {
-            num = cartas.get(0);
-            palo = cartas.get(1);
-        } else{
-            num = cartas.get(10); //Pos10 inician cartas jug2
-            palo = cartas.get(11);
-        }
-        return getNombreImagen(num,palo);
-    }
      
     public boolean iniciarRondas() {
         turno(1);
@@ -121,10 +106,6 @@ public class Controlador{
             juego.inicializarRonda();
         }
         actualizarCartas();
-    }
-    
-    public int getTurno(){
-        return turno;
     }
     
     public void nextTurno(){

@@ -26,11 +26,6 @@ public class Juego {
   public void inicializarRonda() {
       jugador1.desecharMano();
       jugador2.desecharMano();
-      repartirCarta(1);
-      repartirCarta(1);
-      repartirCarta(2);
-      repartirCarta(2);
-      
   }
   
   public void setNombres(String jugador1, String jugador2){

@@ -19,6 +19,18 @@ public class Mesa extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         initComponents();
         this.controlador = controlador;
+        ImageIcon imagen = new ImageIcon(getClass().getResource("/Imagenes/back.png"));
+        ImageIcon front = new ImageIcon(getClass().getResource("/Imagenes/13picas.png"));
+        carta1.setIcon(imagen);
+        carta2.setIcon(front);
+        carta3.setIcon(front);
+        carta4.setIcon(front);
+        carta5.setIcon(front);
+        carta6.setIcon(imagen);
+        carta7.setIcon(front);
+        carta8.setIcon(front);
+        carta9.setIcon(front);
+        carta10.setIcon(front);
     }
     
     public void setTextJug1(String name){
@@ -28,12 +40,6 @@ public class Mesa extends javax.swing.JFrame {
     public void setTextJug2(String name){
         nameJug2.setText(name);
     }
-    
-//    public void setBack(){
-//        ImageIcon back = new ImageIcon(getClass().getResource("/Imagenes/back.png"));
-//        carta1.setIcon(back);
-//        carta6.setIcon(back);
-//    }
     
     public void showCarta(int c){
         switch (c){
@@ -363,11 +369,6 @@ public class Mesa extends javax.swing.JFrame {
                 carta1MouseReleased(evt);
             }
         });
-        carta1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                carta1PropertyChange(evt);
-            }
-        });
         getContentPane().add(carta1);
         carta1.setBounds(68, 305, 50, 80);
 
@@ -402,10 +403,8 @@ public class Mesa extends javax.swing.JFrame {
 
     private void carta1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MousePressed
         // TODO add your handling code here:
-        if(controlador.getTurno() == 1){
-            ImageIcon front = new ImageIcon(getClass().getResource(controlador.getCartaOculta(1)));
-            carta1.setIcon(front);
-        }
+        ImageIcon front = new ImageIcon(getClass().getResource("/Imagenes/11corazones.png"));
+        carta1.setIcon(front);
     }//GEN-LAST:event_carta1MousePressed
 
     private void carta1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MouseReleased
@@ -468,16 +467,10 @@ public class Mesa extends javax.swing.JFrame {
 
     private void carta6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta6MousePressed
         // TODO add your handling code here:
-        if(controlador.getTurno() == 2){
-            ImageIcon front = new ImageIcon(getClass().getResource(controlador.getCartaOculta(2)));
-            carta6.setIcon(front);
-        }
     }//GEN-LAST:event_carta6MousePressed
 
     private void carta6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta6MouseReleased
         // TODO add your handling code here:
-        ImageIcon back = new ImageIcon(getClass().getResource("/Imagenes/back.png"));
-        carta6.setIcon(back);
     }//GEN-LAST:event_carta6MouseReleased
 
     private void carta7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta7MouseClicked
@@ -551,10 +544,6 @@ public class Mesa extends javax.swing.JFrame {
         // TODO add your handling code here:
         controlador.nextTurno();
     }//GEN-LAST:event_FinalizarTurnoMouseClicked
-
-    private void carta1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_carta1PropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_carta1PropertyChange
 
     private Controlador controlador;
     // Variables declaration - do not modify//GEN-BEGIN:variables
