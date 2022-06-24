@@ -136,16 +136,16 @@ public class Controlador{
             turno = jug;
             mesa.mostrarTurno();
             mesa.mostrarPlantarse();
-            if (turno == 3){
+            if (jug == 3){
                 ganador.setJugador1(juego.jugador1.getNombre(), juego.jugador1.suma());
                 ganador.setJugador2(juego.jugador2.getNombre(), juego.jugador2.suma());
                 ganador.setGanador(juego.ganador());
                 ganador.setVisible(true);
             } 
-            if (turno == 1){
+            if (jug == 1){
                 masCartas = true;
             }
-            if (turno == 2) {
+            if (jug == 2) {
                 masCartas = true;
             }
             actualizarCartas();
@@ -166,8 +166,9 @@ public class Controlador{
                 turno(2);
             }
         } else if (turno ==2) {
-            if (juego.getPlantarse(0) == true){
-                if (juego.getPlantarse(1) == true) {
+            if (juego.getPlantarse(1) == true){
+                System.out.println("Pantarse jug2" + juego.getPlantarse(2));
+                if (juego.getPlantarse(2) == true) {
                     turno(3);
                 }
             } else {
@@ -198,7 +199,7 @@ public class Controlador{
         }
         asVerificados = 0;
         if(!encontro){
-            setPlantarse(turno-1, true);
+            setPlantarse(turno, true);
             nextTurno();
         }
     }
@@ -206,7 +207,7 @@ public class Controlador{
     public void finalizarTurno(){
         asVerificados ++;
         if(asVerificados == asMano){
-            setPlantarse(turno-1, true);
+            setPlantarse(turno, true);
             nextTurno();
         }
     }

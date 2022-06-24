@@ -122,7 +122,7 @@ public class Ganador extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(btnSi)
-                        .addGap(48, 48, 48)
+                        .addGap(58, 58, 58)
                         .addComponent(btnNo))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(81, 81, 81)

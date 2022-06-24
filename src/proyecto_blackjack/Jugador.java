@@ -34,11 +34,11 @@ public class Jugador {
   }
 
   public void setSePlanto(boolean termino){
-  this.sePlanto = termino;
+    this.sePlanto = termino;
   }
 
   public boolean getSePlanto(){
-  return sePlanto;
+    return sePlanto;
   }
 
   public ArrayList<Carta> getMano(){
