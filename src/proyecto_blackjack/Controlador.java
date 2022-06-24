@@ -7,18 +7,19 @@ public class Controlador{
     private Mesa mesa;
     private Inicio inicio;
     private Jugadores jugadores;
-    private JugarDeNuevo jugarDeNuevo;
-    private int turno;
+    private Ganador ganador;
+    private int turno, asMano, asVerificados;
     private boolean[] plantarse = new boolean[3]; // Se usa 3 para usar pos1 y pos2
     private boolean masCartas;
     
     public Controlador() {
         this.juego = new Juego();
+        mesa = new Mesa(this);
     }
     public void iniciar(){
         inicio = new Inicio(this);
         inicio.setVisible(true);
-        turno(0);
+        //turno(0);
     }
     
     // Comienza el ciclo principal del programa
@@ -38,7 +39,6 @@ public class Controlador{
     public void initMesa(String jugador1, String jugador2){
         jugadores.setVisible(false);
         juego.setNombres(jugador1, jugador2);
-        mesa = new Mesa(this);
         mesa.setVisible(true);
         mesa.setTextJug1(jugador1);
         mesa.setTextJug2(jugador2);
@@ -113,29 +113,26 @@ public class Controlador{
         plantarse[1] = false;
         juego.inicializarRonda();
         turno(1);
-        //jugarDeNuevo = new JugarDeNuevo();
-        //jugarDeNuevo.setVisible(true);
     }
     
     public void turno(int jug) {
-        turno = jug;
-        mesa.mostrarPlantarse();
-        mesa.mostrarTurno();
-        
-        if (turno == 3){
-            // Calcular ganador y posiblemente mostrar boton siguiente ronda.
-        } else if (turno == 4){
-            turno = 1;
-        } 
-        if (turno == 1){
-            
-            masCartas = true;
-        }
-        if (turno == 2) {
-            masCartas=true;
-        }
-        
-        actualizarCartas();
+            turno = jug;
+            mesa.mostrarTurno();
+            mesa.mostrarPlantarse();
+            if (turno == 3){
+                ganador = new Ganador();
+                ganador.setJugador1(juego.jugador1.getNombre(), juego.jugador1.suma());
+                ganador.setJugador2(juego.jugador2.getNombre(), juego.jugador2.suma());
+                ganador.setGanador(juego.ganador());
+                ganador.setVisible(true);
+            } 
+            if (turno == 1){
+                masCartas = true;
+            }
+            if (turno == 2) {
+                masCartas = true;
+            }
+            actualizarCartas();
     }
     
     public void setPlantarse(int posicion){
@@ -144,27 +141,60 @@ public class Controlador{
     
     public void nextTurno(){
         if (turno == 1) {
-            if (plantarse[2] == true){
-                if (plantarse[1] == true) {
+            if (plantarse[1] == true){
+                if (plantarse[0] == true) {
                     turno(3);
-                } else {
-                    turno(1);
                 }
             } else {
                 turno(2);
             }
         } else if (turno ==2) {
-            if (plantarse[1] == true){
-                if (plantarse[2] == true) {
+            if (plantarse[0] == true){
+                if (plantarse[1] == true) {
                     turno(3);
-                } else {
-                    turno(2);
                 }
             } else {
                 turno(1);
             }
         }
     }
+    
+    public void verificarAses(){
+        boolean encontro = false;
+        ArrayList<Carta> cartas;
+        if(turno == 1){
+            cartas = juego.jugador1.getMano();
+        }else{
+            cartas = juego.jugador2.getMano();
+        }
+        asMano = 0;
+        for(int i = 0; i < cartas.size(); i++){
+            if(cartas.get(i).getNumero() == 1){
+                encontro = true;
+                Ases ases = new Ases(this);
+                ases.setAs(i+1, turno);
+                ases.setVisible(true);
+                asMano++;
+            }
+        }
+        asVerificados = 0;
+        if(!encontro){
+            setPlantarse(turno-1);
+            nextTurno();
+        }
+    }
+    
+    public void finalizarTurno(){
+        asVerificados ++;
+        if(asVerificados == asMano){
+            setPlantarse(turno-1);
+            nextTurno();
+        }
+    }
+    
+    public void cambiarAs(int jug, int pos) {
+        juego.cambiarAs(jug, pos);
+     }
     
     public void finalizar() {
         

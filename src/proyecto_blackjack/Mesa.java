@@ -586,8 +586,7 @@ public class Mesa extends javax.swing.JFrame {
 
     private void PlantarseJug1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantarseJug1MouseClicked
         // TODO add your handling code here:
-        controlador.setPlantarse(1);
-        controlador.nextTurno();
+        controlador.verificarAses();
         PlantarseJug1.setVisible(false);
     }//GEN-LAST:event_PlantarseJug1MouseClicked
 
@@ -597,9 +596,8 @@ public class Mesa extends javax.swing.JFrame {
 
     private void PlantarseJug2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantarseJug2MouseClicked
         // TODO add your handling code here:
-        controlador.setPlantarse(2);
-        controlador.nextTurno();
-        PlantarseJug1.setVisible(false);
+        controlador.verificarAses();
+        PlantarseJug2.setVisible(false);
     }//GEN-LAST:event_PlantarseJug2MouseClicked
 
     private void PlantarseJug2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlantarseJug2ActionPerformed

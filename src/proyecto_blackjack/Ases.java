@@ -14,8 +14,15 @@ public class Ases extends javax.swing.JFrame {
     /**
      * Creates new form Ases
      */
-    public Ases() {
+    public Ases(Controlador controlador) {
+        this.controlador = controlador;
         initComponents();
+    }
+    
+    public void setAs(int pos, int jug){
+        lbl1.setText("Su carta numero " + pos + " es un As. ¿Cómo desea utilizarlo?");
+        posicionAs = pos;
+        jugador = jug;
     }
 
     /**
@@ -29,10 +36,10 @@ public class Ases extends javax.swing.JFrame {
 
         Valores = new javax.swing.ButtonGroup();
         valor1 = new javax.swing.JRadioButton();
-        valor10 = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
+        valor11 = new javax.swing.JRadioButton();
+        lbl1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,17 +51,17 @@ public class Ases extends javax.swing.JFrame {
             }
         });
 
-        Valores.add(valor10);
-        valor10.setText("11");
+        Valores.add(valor11);
+        valor11.setText("11");
 
-        jLabel1.setText("Su carta numero _ es un As. ¿Cómo desea utilizarlo?");
+        lbl1.setText("Su carta numero _ es un As. ¿Cómo desea utilizarlo?");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
 
-        jButton1.setText("Aceptar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAceptarActionPerformed(evt);
             }
         });
 
@@ -64,16 +71,16 @@ public class Ases extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1)
+                    .addComponent(btnAceptar)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(95, 95, 95)
                             .addComponent(valor1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(38, 38, 38)
-                            .addComponent(valor10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(valor11, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(30, 30, 30)
-                            .addComponent(jLabel1))
+                            .addComponent(lbl1))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(61, 61, 61)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -85,13 +92,13 @@ public class Ases extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(lbl1)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(valor1)
-                    .addComponent(valor10))
+                    .addComponent(valor11))
                 .addGap(27, 27, 27)
-                .addComponent(jButton1)
+                .addComponent(btnAceptar)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -102,9 +109,14 @@ public class Ases extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_valor1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if(valor11.isSelected() == true){
+            controlador.cambiarAs(jugador, posicionAs);
+            this.setVisible(false);
+        }
+        controlador.finalizarTurno();
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,17 +148,19 @@ public class Ases extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ases().setVisible(true);
             }
         });
     }
-
+    
+    private Controlador controlador;
+    int posicionAs;
+    int jugador;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Valores;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnAceptar;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lbl1;
     private javax.swing.JRadioButton valor1;
-    private javax.swing.JRadioButton valor10;
+    private javax.swing.JRadioButton valor11;
     // End of variables declaration//GEN-END:variables
 }

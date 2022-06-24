@@ -80,32 +80,57 @@ public class Juego {
     return cartas;
   }
 
-  public void cambiarAs(Jugador jugador, int pos) {
-      jugador.cambiarAs(pos);
+  public void cambiarAs(int jugador, int pos) {
+      if(jugador == 1){
+          jugador1.cambiarAs(pos-1);
+      }else{
+          jugador2.cambiarAs(pos-1);
+      }
+  }
+  
+  public int getSumaJug(int jug){
+      int suma = 0;
+      if(jug == 1){
+          suma = jugador1.suma();
+      }else if(jug == 2){
+          suma = jugador2.suma();
+      }
+      return suma;
   }
   
   //Ganador solo tiene que verificar la suma
-  public void ganador(){
+  public String ganador(){
       // Se simplifico
     int suma1 = jugador1.suma();
     int suma2 = jugador2.suma();
-  
+    String ganador = "";
     if(suma1 <= 21 && suma2 <= 21) {
       if (suma1>suma2) {
         victorias1++;  
+        ganador = jugador1.getNombre();
       } else if (suma1<suma2) {
         victorias2++;
+        ganador = jugador2.getNombre();
       } else if (suma1==suma2) {
         if (jugador1.getMano().size() < jugador2.getMano().size())  {
-          victorias1++;  
+          victorias1++; 
+          ganador = jugador1.getNombre();
         } else if (jugador1.getMano().size() > jugador2.getMano().size()){
             victorias2++;
+            ganador = jugador2.getNombre();
+        }else{
+            ganador = "Empate";
         }
       }
     } else if (suma1 <= 21) {
         victorias1++;
+        ganador = jugador1.getNombre();
     } else if (suma2 <=21) {
         victorias2++;
+        ganador = jugador2.getNombre();
+    }else{
+        ganador = "No hay ganador";
     }
+    return ganador;
   }
 }

@@ -1,7 +1,6 @@
 package proyecto_blackjack;
 
 public class Carta {
-  final int As1 = 1;
   final int As11 = 11;
   int palo = 0; // 0 = treboles, 1 = picas 2 = corazones 3 = diamantes
   int numero = 0;
@@ -29,10 +28,6 @@ public class Carta {
       return valor;
   }
   public void setValorAs() {
-    if (valor == As1) {
-        valor = As11;
-    } else if (valor == As11) {
-        valor = As1;
-    }
+    valor = As11;
   }  
 }
