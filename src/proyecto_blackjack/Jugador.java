@@ -9,7 +9,6 @@ public class Jugador {
   private int victorias = 0;
   private ArrayList<Carta> mano = new ArrayList<Carta>();
 
-
   public Jugador() {
     termino = false;
   }
@@ -30,11 +29,9 @@ public class Jugador {
     return suma;
   }
 
-  // Cambia el valor del As ubicado en mano.get(pos) 
   public void cambiarAs(int pos){
     mano.get(pos).setValorAs();
   }
-
 
   public void setTermino(boolean termino){
   this.termino = termino;
@@ -63,5 +60,4 @@ public class Jugador {
   public void setVictorias(int victorias){
     this.victorias = victorias;
   }
-  
 }

@@ -104,14 +104,14 @@ public class Controlador{
             num= cartas.get(i*2);
             palo = cartas.get((i*2)+1);
             if (num!=0){
-              mesa.iconCarta(i+1,getRutaCarta(num,palo));
+              mesa.setIconCarta(i+1,getRutaCarta(num,palo));
               mesa.showCarta(i+1);
             } else {
                 mesa.hideCarta(i+1);
             }
         }
-        mesa.iconCarta(1,"/Imagenes/back.png");
-        mesa.iconCarta(6,"/Imagenes/back.png");
+        mesa.setIconCarta(1,"/Imagenes/back.png");
+        mesa.setIconCarta(6,"/Imagenes/back.png");
     }
     
      public String getRutaCarta(int numero, int palo){

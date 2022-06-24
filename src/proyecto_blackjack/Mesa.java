@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Andy , Tonny
+ * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
  */
 public class Mesa extends javax.swing.JFrame {
 
@@ -120,7 +120,7 @@ public class Mesa extends javax.swing.JFrame {
         }
     }
     
-    public void iconCarta(int c, String icon){
+    public void setIconCarta(int c, String icon){
         ImageIcon icono = new ImageIcon(getClass().getResource(icon));
         switch (c){
             case 1:
@@ -572,11 +572,20 @@ public class Mesa extends javax.swing.JFrame {
 
     private void ayudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ayudaMouseClicked
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Este juego consiste en enfrentarse entre 2 jugadores comparando las cartas que estos tengan en su mano,\n" +
-"intentando conseguir 21 puntos o el número más cercano posible sin pasarse. El juego comienza dando 2\n" +
-"cartas a cada jugador, seguido de esto cada jugador por turnos podrá pedir una carta. Cuando el jugador ya no quiera\n" +
-"más cartas, dará pie a que el otro jugador pueda seguir pidiendo cartas. Cuando los 2 jugadores ya no quieran más\n" +
-"cartas, finalizará la ronda y se dará a conocer al ganador.","¿Cómo jugar?",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Este juego consiste en un enfrentamiento entre 2 jugadores comparando las cartas que estos tengan en\n"+
+        "su mano, intentanto conseguir 21 puntos o el número más cercano posible sin pasarse. Al iniciar\n"+
+        "la ronda, se le dara 2 cartas a cada jugador, una carta boca abajo que solo puede ver su jugador,\n"+
+        "esto lo podrá hacer presionando encima de la carta. Cuando un jugador ya no quiera más cartas,\n"+
+        "tendrá la opción de plantarse, cuando ambos jugadores se planten, la ronda terminará y se\n"+
+        "dará un ganador.\n\n"+
+        "Reglas\n\n"+
+        "1. Cada jugador solo podrá pedir una carta por turno.\n"+
+        "2.En el blackjack, los dieces, las jotas, las reinas y los reyes tienen un valor de 10 cada una.\n"+
+        "3.Los ases pueden tener dos valores diferentes: uno u once (puedes elegir cuál).\n"+
+        "4.Cuando el valor total de tu mano es de 22 o más, esto se conoce comúnmente como \"bancarrota\",\n"+
+        "y automáticamente perderás la ronda.\n"+
+        "5. En caso de un empate, ganará el jugador con menos cartas en su mano. Si ambos tuvieran la\n"+
+        "misma cantidad de cartas, habría un empate.\n","¿Cómo jugar?",JOptionPane.INFORMATION_MESSAGE);
         
     }//GEN-LAST:event_ayudaMouseClicked
 

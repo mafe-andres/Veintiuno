@@ -16,7 +16,6 @@ public class Juego {
     this.mazo = new Mazo();
   }
 
-  //Deberia de iniciar la baraja y controlar las rondas (preguntar si quiere jugar otra ronda)
   public void inicializarJuego(){
     mazo.iniciarBaraja();
     victorias1 = 0;
@@ -30,7 +29,6 @@ public class Juego {
       repartirCarta(1);
       repartirCarta(2);
       repartirCarta(2);
-      
   }
   
   public void setNombres(String jugador1, String jugador2){
@@ -47,10 +45,6 @@ public class Juego {
     }
   }
   
-  
-  // Devuelve las cartas que hay en la mesa actualmente organizadas en un arraylist
-  // De la pos 0-9 jugador1, 10-19 jugador2. 
-  //Vienen organizadas primero el numero y luego el palo de cada carta y en orden que se han pedido.
   public ArrayList<Integer> getCartasMesa(){
     ArrayList<Integer> cartas = new ArrayList<Integer>(2*CARTASXMES);
     int numero =0;
@@ -98,9 +92,7 @@ public class Juego {
       return suma;
   }
   
-  //Ganador solo tiene que verificar la suma
   public String ganador(){
-      // Se simplifico
     int suma1 = jugador1.suma();
     int suma2 = jugador2.suma();
     String ganador = "";

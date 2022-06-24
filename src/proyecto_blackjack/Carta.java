@@ -2,7 +2,7 @@ package proyecto_blackjack;
 
 public class Carta {
   final int As11 = 11;
-  int palo = 0; // 0 = treboles, 1 = picas 2 = corazones 3 = diamantes
+  int palo = 0;
   int numero = 0;
   int valor = 0;
   

@@ -6,7 +6,7 @@ package proyecto_blackjack;
 
 /**
  *
- * @author gpint
+ * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
  */
 public class MasCartas extends javax.swing.JFrame {
 

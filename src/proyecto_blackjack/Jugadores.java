@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Andy
+ * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
  */
 public class Jugadores extends javax.swing.JFrame {
 
