@@ -1,13 +1,15 @@
 package proyecto_blackjack;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Controlador{
-    final int CARTASXMES = 10;
+    final int CARTASXMESA = 10;
     private Juego juego;
     private Mesa mesa;
     private Inicio inicio;
     private Jugadores jugadores;
     private Ganador ganador;
+    private Ases[] ases = new Ases[4];
     private int turno, asMano, asVerificados;
     private boolean[] plantarse = new boolean[3]; // Se usa 3 para usar pos1 y pos2
     private boolean masCartas;
@@ -27,7 +29,6 @@ public class Controlador{
         // Probar
         juego.inicializarJuego();
         iniciarRonda();
-        finalizar();
     }
      
     public void initJugadores(){
@@ -42,7 +43,6 @@ public class Controlador{
         mesa.setVisible(true);
         mesa.setTextJug1(jugador1);
         mesa.setTextJug2(jugador2);
-        
     }
     
     public void pedirCarta() {
@@ -74,7 +74,7 @@ public class Controlador{
         ArrayList<Integer> cartas = juego.getCartasMesa();
         int num = cartas.get(0);
         int palo = cartas.get(0);
-        for (int i = 0; i< CARTASXMES; i++) {
+        for (int i = 0; i< CARTASXMESA; i++) {
             num= cartas.get(i*2);
             palo = cartas.get((i*2)+1);
             if (num!=0){
@@ -90,7 +90,6 @@ public class Controlador{
     
      public String getNombreImagen(int numero, int palo){
       String nombre = "";
-      
         switch(palo){
             case 0:
                 nombre = "/Imagenes/" + numero + "treboles.png";
@@ -120,7 +119,7 @@ public class Controlador{
             mesa.mostrarTurno();
             mesa.mostrarPlantarse();
             if (turno == 3){
-                ganador = new Ganador();
+                ganador = new Ganador(this);
                 ganador.setJugador1(juego.jugador1.getNombre(), juego.jugador1.suma());
                 ganador.setJugador2(juego.jugador2.getNombre(), juego.jugador2.suma());
                 ganador.setGanador(juego.ganador());
@@ -168,12 +167,14 @@ public class Controlador{
             cartas = juego.jugador2.getMano();
         }
         asMano = 0;
+        int contadorAses = 0;
         for(int i = 0; i < cartas.size(); i++){
             if(cartas.get(i).getNumero() == 1){
                 encontro = true;
-                Ases ases = new Ases(this);
-                ases.setAs(i+1, turno);
-                ases.setVisible(true);
+                ases[contadorAses] = new Ases(this);
+                ases[contadorAses].setAs(i+1, turno);
+                ases[contadorAses].setVisible(true);
+                contadorAses++;
                 asMano++;
             }
         }
@@ -196,7 +197,20 @@ public class Controlador{
         juego.cambiarAs(jug, pos);
      }
     
+    public void finalizarRonda(){
+        ganador.setVisible(false);
+        iniciarRonda();
+    }
+    
     public void finalizar() {
-        
+        mesa.dispose();
+        ganador.dispose();
+        inicio.dispose();
+        jugadores.dispose();
+        for (int i = 0; i < 4; i++){
+            if (!Objects.isNull(ases[i])){
+                ases[i].dispose();
+            }
+        }
     }
 }
