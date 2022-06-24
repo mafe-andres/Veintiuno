@@ -3,12 +3,16 @@ package proyecto_blackjack;
 import java.util.ArrayList;
 import java.util.*;
 
+/**
+ *
+ * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
+ */
 public class Mazo {
 
   ArrayList<Carta> mazo = new ArrayList<Carta>();
 
   public void iniciarBaraja(){
-      mazo.clear(); //Se limpia por si hay cartas
+      mazo.clear();
       Carta cartaNueva;
     for (int i = 1; i < 14; i++) {
       cartaNueva = new Carta(i, 0);

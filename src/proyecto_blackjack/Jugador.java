@@ -2,6 +2,10 @@ package proyecto_blackjack;
 
 import java.util.ArrayList; 
 
+/**
+ *
+ * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
+ */
 public class Jugador {
 
   private String nombre = " ";
