@@ -1,12 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package proyecto_blackjack;
+
 import java.util.HashSet;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
@@ -433,11 +430,9 @@ public class Mesa extends javax.swing.JFrame {
     }//GEN-LAST:event_NuevoJuegoActionPerformed
 
     private void carta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta1MouseClicked
 
     private void carta1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MousePressed
-        // TODO add your handling code here:
         if(controlador.getTurno() == 1){
             ImageIcon front = new ImageIcon(getClass().getResource(controlador.getCartaOculta(1)));
             carta1.setIcon(front);
@@ -445,65 +440,50 @@ public class Mesa extends javax.swing.JFrame {
     }//GEN-LAST:event_carta1MousePressed
 
     private void carta1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MouseReleased
-        // TODO add your handling code here:
         ImageIcon back = new ImageIcon(getClass().getResource("/Imagenes/back.png"));
         carta1.setIcon(back);
     }//GEN-LAST:event_carta1MouseReleased
 
     private void carta5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta5MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta5MouseClicked
 
     private void carta5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta5MousePressed
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta5MousePressed
 
     private void carta5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta5MouseReleased
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta5MouseReleased
 
     private void carta4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta4MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta4MouseClicked
 
     private void carta4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta4MousePressed
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta4MousePressed
 
     private void carta4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta4MouseReleased
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta4MouseReleased
 
     private void carta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta3MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta3MouseClicked
 
     private void carta3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta3MousePressed
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta3MousePressed
 
     private void carta3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta3MouseReleased
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta3MouseReleased
 
     private void carta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta2MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta2MouseClicked
 
     private void carta2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta2MousePressed
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta2MousePressed
 
     private void carta2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta2MouseReleased
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta2MouseReleased
 
     private void carta6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta6MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta6MouseClicked
 
     private void carta6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta6MousePressed
-        // TODO add your handling code here:
         if(controlador.getTurno() == 2){
             ImageIcon front = new ImageIcon(getClass().getResource(controlador.getCartaOculta(2)));
             carta6.setIcon(front);
@@ -511,67 +491,52 @@ public class Mesa extends javax.swing.JFrame {
     }//GEN-LAST:event_carta6MousePressed
 
     private void carta6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta6MouseReleased
-        // TODO add your handling code here:
         ImageIcon back = new ImageIcon(getClass().getResource("/Imagenes/back.png"));
         carta6.setIcon(back);
     }//GEN-LAST:event_carta6MouseReleased
 
     private void carta7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta7MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta7MouseClicked
 
     private void carta7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta7MousePressed
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta7MousePressed
 
     private void carta7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta7MouseReleased
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta7MouseReleased
 
     private void carta8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta8MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta8MouseClicked
 
     private void carta8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta8MousePressed
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta8MousePressed
 
     private void carta8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta8MouseReleased
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta8MouseReleased
 
     private void carta9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta9MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta9MouseClicked
 
     private void carta9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta9MousePressed
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta9MousePressed
 
     private void carta9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta9MouseReleased
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta9MouseReleased
 
     private void carta10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta10MouseClicked
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta10MouseClicked
 
     private void carta10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta10MousePressed
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta10MousePressed
 
     private void carta10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta10MouseReleased
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta10MouseReleased
 
     private void pedirCartaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pedirCartaMouseClicked
-        // TODO add your handling code here:
         controlador.pedirCarta();
         controlador.nextTurno();
     }//GEN-LAST:event_pedirCartaMouseClicked
 
     private void ayudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ayudaMouseClicked
-        // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Este juego consiste en un enfrentamiento entre 2 jugadores comparando las cartas que estos tengan en\n"+
         "su mano, intentanto conseguir 21 puntos o el número más cercano posible sin pasarse. Al iniciar\n"+
         "la ronda, se le dara 2 cartas a cada jugador, una carta boca abajo que solo puede ver su jugador,\n"+
@@ -590,27 +555,22 @@ public class Mesa extends javax.swing.JFrame {
     }//GEN-LAST:event_ayudaMouseClicked
 
     private void PlantarseJug1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlantarseJug1ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_PlantarseJug1ActionPerformed
 
     private void PlantarseJug1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantarseJug1MouseClicked
-        // TODO add your handling code here:
         controlador.verificarAses();
         PlantarseJug1.setVisible(false);
     }//GEN-LAST:event_PlantarseJug1MouseClicked
 
     private void carta1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_carta1PropertyChange
-        // TODO add your handling code here:
     }//GEN-LAST:event_carta1PropertyChange
 
     private void PlantarseJug2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantarseJug2MouseClicked
-        // TODO add your handling code here:
         controlador.verificarAses();
         PlantarseJug2.setVisible(false);
     }//GEN-LAST:event_PlantarseJug2MouseClicked
 
     private void PlantarseJug2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlantarseJug2ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_PlantarseJug2ActionPerformed
 
     private Controlador controlador;

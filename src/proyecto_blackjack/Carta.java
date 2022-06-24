@@ -1,5 +1,9 @@
 package proyecto_blackjack;
 
+/**
+ *
+ * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
+ */
 public class Carta {
   final int As11 = 11;
   int palo = 0;

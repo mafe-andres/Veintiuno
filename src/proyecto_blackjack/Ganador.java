@@ -179,7 +179,7 @@ public class Ganador extends javax.swing.JFrame {
         controlador.finalizar();
     }//GEN-LAST:event_btnNoActionPerformed
     
-    Controlador controlador;
+    private Controlador controlador;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNo;
     private javax.swing.JButton btnSi;
