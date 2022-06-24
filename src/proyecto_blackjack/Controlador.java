@@ -3,40 +3,38 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Controlador{
+
     final int CARTASXMESA = 10;
+
+    //Vistas
     private Juego juego;
-    private Mesa mesa;
+    private Mesa mesa; 
     private Inicio inicio;
     private Jugadores jugadores;
     private Ganador ganador;
+
     private Ases[] ases = new Ases[4];
     private int turno, asMano, asVerificados;
-    private boolean[] plantarse = new boolean[3]; // Se usa 3 para usar pos1 y pos2
+    private boolean[] plantarse = new boolean[3];
     private boolean masCartas;
     
     public Controlador() {
         this.juego = new Juego();
         mesa = new Mesa(this);
-    }
-    public void iniciar(){
         inicio = new Inicio(this);
+        jugadores = new Jugadores(this);
+        ganador = new Ganador(this);
+    }
+
+    public void iniciar(){
         inicio.setVisible(true);
-        //turno(0);
     }
-    
-    // Comienza el ciclo principal del programa
-    public void jugar() {
-        // Probar
-        juego.inicializarJuego();
-        iniciarRonda();
-    }
-     
+
     public void initJugadores(){
         inicio.setVisible(false);
-        jugadores = new Jugadores(this);
         jugadores.setVisible(true);
     }
-     
+
     public void initMesa(String jugador1, String jugador2){
         jugadores.setVisible(false);
         juego.setNombres(jugador1, jugador2);
@@ -45,6 +43,35 @@ public class Controlador{
         mesa.setTextJug2(jugador2);
     }
     
+    public void jugar() {
+        juego.inicializarJuego();
+        iniciarRonda();
+    }
+
+    public void iniciarRonda() {
+        plantarse[0] = false;
+        plantarse[1] = false;
+        juego.inicializarRonda();
+        turno(1);
+    }
+    
+    public void finalizarRonda(){
+        ganador.setVisible(false);
+        iniciarRonda();
+    }
+    
+    public void finalizar() {
+        mesa.dispose();
+        ganador.dispose();
+        inicio.dispose();
+        jugadores.dispose();
+        for (int i = 0; i < 4; i++){
+            if (!Objects.isNull(ases[i])){
+                ases[i].dispose();
+            }
+        }
+    }
+
     public void pedirCarta() {
         juego.repartirCarta(turno);
         masCartas = false;
@@ -63,11 +90,10 @@ public class Controlador{
             num = cartas.get(0);
             palo = cartas.get(1);
         } else{
-            num = cartas.get(10); //Pos10 inician cartas jug2
+            num = cartas.get(10);
             palo = cartas.get(11);
         }
-        return getNombreImagen(num,palo);
-        
+        return getRutaCarta(num,palo);   
     }
     
     private void actualizarCartas() {
@@ -78,7 +104,7 @@ public class Controlador{
             num= cartas.get(i*2);
             palo = cartas.get((i*2)+1);
             if (num!=0){
-              mesa.iconCarta(i+1,getNombreImagen(num,palo));
+              mesa.iconCarta(i+1,getRutaCarta(num,palo));
               mesa.showCarta(i+1);
             } else {
                 mesa.hideCarta(i+1);
@@ -88,7 +114,7 @@ public class Controlador{
         mesa.iconCarta(6,"/Imagenes/back.png");
     }
     
-     public String getNombreImagen(int numero, int palo){
+     public String getRutaCarta(int numero, int palo){
       String nombre = "";
         switch(palo){
             case 0:
@@ -105,13 +131,6 @@ public class Controlador{
                 break;
         }
       return nombre;
-  }
-     
-    public void iniciarRonda() {
-        plantarse[0] = false;
-        plantarse[1] = false;
-        juego.inicializarRonda();
-        turno(1);
     }
     
     public void turno(int jug) {
@@ -119,7 +138,6 @@ public class Controlador{
             mesa.mostrarTurno();
             mesa.mostrarPlantarse();
             if (turno == 3){
-                ganador = new Ganador(this);
                 ganador.setJugador1(juego.jugador1.getNombre(), juego.jugador1.suma());
                 ganador.setJugador2(juego.jugador2.getNombre(), juego.jugador2.suma());
                 ganador.setGanador(juego.ganador());
@@ -196,21 +214,4 @@ public class Controlador{
     public void cambiarAs(int jug, int pos) {
         juego.cambiarAs(jug, pos);
      }
-    
-    public void finalizarRonda(){
-        ganador.setVisible(false);
-        iniciarRonda();
-    }
-    
-    public void finalizar() {
-        mesa.dispose();
-        ganador.dispose();
-        inicio.dispose();
-        jugadores.dispose();
-        for (int i = 0; i < 4; i++){
-            if (!Objects.isNull(ases[i])){
-                ases[i].dispose();
-            }
-        }
-    }
 }
