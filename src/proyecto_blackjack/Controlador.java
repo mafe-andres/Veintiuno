@@ -15,7 +15,6 @@ public class Controlador{
 
     private Ases[] ases = new Ases[4];
     private int turno, asMano, asVerificados;
-    private boolean[] plantarse = new boolean[3];
     private boolean masCartas;
     
     public Controlador() {
@@ -49,8 +48,8 @@ public class Controlador{
     }
 
     public void iniciarRonda() {
-        plantarse[0] = false;
-        plantarse[1] = false;
+        setPlantarse(1, false);
+        setPlantarse(2, false);
         juego.inicializarRonda();
         turno(1);
     }
@@ -152,22 +151,23 @@ public class Controlador{
             actualizarCartas();
     }
     
-    public void setPlantarse(int posicion){
-        this.plantarse[posicion] = true;
+    public void setPlantarse(int jugador, boolean plantado){
+        juego.setPlantarse(jugador, plantado);
+        //this.plantarse[posicion] = true;
     }
     
     public void nextTurno(){
         if (turno == 1) {
-            if (plantarse[1] == true){
-                if (plantarse[0] == true) {
+            if (juego.getPlantarse(2) == true){
+                if (juego.getPlantarse(1) == true) {
                     turno(3);
                 }
             } else {
                 turno(2);
             }
         } else if (turno ==2) {
-            if (plantarse[0] == true){
-                if (plantarse[1] == true) {
+            if (juego.getPlantarse(0) == true){
+                if (juego.getPlantarse(1) == true) {
                     turno(3);
                 }
             } else {
@@ -198,7 +198,7 @@ public class Controlador{
         }
         asVerificados = 0;
         if(!encontro){
-            setPlantarse(turno-1);
+            setPlantarse(turno-1, true);
             nextTurno();
         }
     }
@@ -206,7 +206,7 @@ public class Controlador{
     public void finalizarTurno(){
         asVerificados ++;
         if(asVerificados == asMano){
-            setPlantarse(turno-1);
+            setPlantarse(turno-1, true);
             nextTurno();
         }
     }

@@ -125,4 +125,22 @@ public class Juego {
     }
     return ganador;
   }
+  
+  public boolean getPlantarse(int jug) {
+    boolean response = false;
+    if (jug == 1) {
+      response = jugador1.getSePlanto();
+    } else if (jug == 2) {
+        response = jugador2.getSePlanto();
+    }
+    return response;
+  }
+  
+  public void setPlantarse(int jug, boolean plantado) {
+    if (jug == 1) {
+      jugador1.setSePlanto(plantado);
+    } else if (jug == 2) {
+      jugador2.setSePlanto(plantado);
+    }
+  }
 }

@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Jugador {
 
   private String nombre = " ";
-  private Boolean termino = false;
+  private Boolean sePlanto;
   private int victorias = 0;
   private ArrayList<Carta> mano = new ArrayList<Carta>();
 
   public Jugador() {
-    termino = false;
+    sePlanto = false;
   }
   
   public void recibirCarta(Carta carta){
@@ -33,12 +33,12 @@ public class Jugador {
     mano.get(pos).setValorAs();
   }
 
-  public void setTermino(boolean termino){
-  this.termino = termino;
+  public void setSePlanto(boolean termino){
+  this.sePlanto = termino;
   }
 
-  public boolean getTermino(){
-  return termino;
+  public boolean getSePlanto(){
+  return sePlanto;
   }
 
   public ArrayList<Carta> getMano(){
