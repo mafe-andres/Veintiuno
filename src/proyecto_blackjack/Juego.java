@@ -3,6 +3,7 @@ package proyecto_blackjack;
 import java.util.ArrayList;
 
 public class Juego {
+
   final int CARTASXMES = 10;
   final int CARTASXJUG = 5;
   private Mazo mazo;
@@ -10,18 +11,27 @@ public class Juego {
   Jugador jugador2;
   private int victorias1, victorias2;
 
+  /**
+   * Constructor Juego. Crea dos jugadores y un mazo.
+   */
   public Juego() {
     this.jugador1 = new Jugador();
     this.jugador2 = new Jugador();
     this.mazo = new Mazo();
   }
 
+  /**
+   * Incializa el juego. Inicializa la baraja y actualiza las victorias del jugador a 0.
+   */
   public void inicializarJuego(){
     mazo.iniciarBaraja();
     victorias1 = 0;
     victorias2 = 0;
   }
   
+  /**
+   * Incializa el ronda. Desecha las manos de lso jugadores y les reparte dos nuevas.
+   */
   public void inicializarRonda() {
       jugador1.desecharMano();
       jugador2.desecharMano();
@@ -31,11 +41,20 @@ public class Juego {
       repartirCarta(2);
   }
   
+  /**
+   * Actualiza el nombre de los jugadores.
+   * @param jugador1 el nombre del jugador 1
+   * @param jugador1 el nombre del jugador 2
+   */
   public void setNombres(String jugador1, String jugador2){
     this.jugador1.setNombre(jugador1);
     this.jugador2.setNombre(jugador2);
   }
   
+  /**
+   * Le reparte una carta a un jugador. No se permiten mas de CARTASXJUG por jugador.
+   * @param jugador el nombre del jugador al que se le va a dar la carta
+   */
   public void repartirCarta(int jugador){
     Carta card = mazo.getCarta();
     if (jugador ==1 && jugador1.getMano().size()<=CARTASXJUG) {
@@ -45,6 +64,10 @@ public class Juego {
     }
   }
   
+  /**
+   * Retorna las cartas que estan sobre la mesa. Retorna las cartas de jugador 1 y jugador 2.
+   * @return arreglo con las cartas sobre la mesa
+   */
   public ArrayList<Integer> getCartasMesa(){
     ArrayList<Integer> cartas = new ArrayList<Integer>(2*CARTASXMES);
     int numero =0;
@@ -74,6 +97,11 @@ public class Juego {
     return cartas;
   }
 
+  /**
+   * Cambia el valor de un as.
+   * @param jugador el nombre del jugador que tiene el as
+   * @param pos las posicion del as
+   */
   public void cambiarAs(int jugador, int pos) {
       if(jugador == 1){
           jugador1.cambiarAs(pos-1);
@@ -82,6 +110,11 @@ public class Juego {
       }
   }
   
+  /**
+   * Retorna la suma de la mano de un jugador.
+   * @param jug el nombre del jugador
+   * @return la suma de la mano de un jugador
+   */
   public int getSumaJug(int jug){
       int suma = 0;
       if(jug == 1){
@@ -92,6 +125,11 @@ public class Juego {
       return suma;
   }
   
+  /**
+   * Retorna el ganador de una ronda. Calcula la suma de las manos de ambos jugadores
+   * las compara para encontrar el gandor o indicar empate.
+   * @return un string con el nombre del jugador, si es empate o si no hay ganador
+   */
   public String ganador(){
     int suma1 = jugador1.suma();
     int suma2 = jugador2.suma();
@@ -126,6 +164,11 @@ public class Juego {
     return ganador;
   }
   
+  /**
+   * Retorna si un jugador esta plantado.
+   * @param jug el jugador que se va a preguntar
+   * @return booleano que indica si el jugador esta plantado
+   */
   public boolean getPlantarse(int jug) {
     boolean response = false;
     if (jug == 1) {
@@ -136,6 +179,11 @@ public class Juego {
     return response;
   }
   
+  /**
+   * Actualiza si un jugador esta plantado.
+   * @param jug el jugador que se va a plantar o no
+   * @param platado si el jugador se va a plantar o no
+   */
   public void setPlantarse(int jug, boolean plantado) {
     if (jug == 1) {
       jugador1.setSePlanto(plantado);

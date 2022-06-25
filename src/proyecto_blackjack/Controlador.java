@@ -12,8 +12,8 @@ public class Controlador{
     private Inicio inicio;
     private Jugadores jugadores;
     private Ganador ganador;
-
     private Ases[] ases = new Ases[4];
+    
     private int turno, asMano, asVerificados;
     private boolean masCartas;
     

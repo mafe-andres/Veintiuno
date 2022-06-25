@@ -9,11 +9,20 @@ import java.util.*;
  */
 public class Mazo {
 
-  ArrayList<Carta> mazo = new ArrayList<Carta>();
+  private ArrayList<Carta> mazo = new ArrayList<Carta>();
 
+  /**
+   * Constructor Mazo.
+   */
+  public void Mazo(){
+  }
+  
+  /**
+   * Inicia el mazo. Limpia el mazo y agrega las cartas de la baraja francesa. Mezcla las cartas.
+   */
   public void iniciarBaraja(){
-      mazo.clear();
-      Carta cartaNueva;
+    mazo.clear();
+    Carta cartaNueva;
     for (int i = 1; i < 14; i++) {
       cartaNueva = new Carta(i, 0);
       mazo.add(cartaNueva);
@@ -33,10 +42,13 @@ public class Mazo {
     Collections.shuffle(mazo);
   }
 
+  /**
+   * Retorna una carta. Agarra la carta en la primera posicion del mazo y la elimina.
+   * @return una carta
+   */
   public Carta getCarta(){
     Carta a = mazo.get(0);
     mazo.remove(0);
     return a;
   }
-  
 }
