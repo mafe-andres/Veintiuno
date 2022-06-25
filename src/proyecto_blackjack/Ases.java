@@ -135,6 +135,7 @@ public class Ases extends javax.swing.JFrame {
     /**
      * Indica cuando se hace click en el boton aceptar.
      * @param evt Evento.
+     * @bug la ventana no se esconde cuando se seleciona la opcion 1
      */
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
