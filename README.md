@@ -8,13 +8,10 @@ tendrá la opción de plantarse, cuando ambos jugadores se planten, la ronda ter
 dará un ganador.
 Reglas
 1. Cada jugador solo podrá pedir una carta por turno.
-2.En el blackjack, los dieces, las jotas, las reinas y los reyes tienen un valor de 10 cada una.
-3.Los ases pueden tener dos valores diferentes: uno u once (puedes elegir cuál).
-4.Cuando el valor total de tu mano es de 22 o más, esto se conoce comúnmente como "bancarrota",
-y automáticamente perderás la ronda.
-5. En caso de un empate, ganará el jugador con menos cartas en su mano. Si ambos tuvieran la
-misma cantidad de cartas, habría un empate.
-
+2. En el blackjack, los dieces, las jotas, las reinas y los reyes tienen un valor de 10 cada una.
+3. Los ases pueden tener dos valores diferentes: uno u once (puedes elegir cuál).
+4. Cuando el valor total de tu mano es de 22 o más, esto se conoce comúnmente como "bancarrota", y automáticamente perderás la ronda.
+5. En caso de un empate, ganará el jugador con menos cartas en su mano. Si ambos tuvieran la misma cantidad de cartas, habría un empate.
 
 ## Manual de Usuario
 
