@@ -18,8 +18,16 @@ Reglas
 ### Construcción y compilacion
 El programa se realizó usando Netbeans Ant. Los archivos de construccion están formateados para Netbeans, para construir el programa se recomienda instalar Netbeans y usar las opciones de compilación que provee.
 
+Opcionalmente se adjuntan las instrucciones para construccion desde terminal:
+1. Desde terminal entre al directorio /Veintiuno/src/proyecto_blackjack/
+2. Use el comando para compilar: javac *.java
+
 ### Ejecución del programa
 Se ha incluído en el repositorio una versión ejecutable del código más reciente para facilidad de revisión. Alternativamente se puede usar Netbeans para correr el programa.
+
+Si compiló usando la terminal anteriormente:
+1. Desde terminal entre al directorio /Veintiuno/src/ 
+2. Comando para ejecutar: java proyecto_blackjack.Veintiuno
 
 ### Terminar el programa
 El programa terminará por si solo una vez que el jugador indique que ya no quiere jugar más o cuando se haga click en alguna equis de las diferentes ventanas.
@@ -52,7 +60,7 @@ maria.andres@ucr.ac.cr
 
 - Ortiz Salazar, Tonny
 San José, Costa Rica. 
-jafet.picado@ucr.ac.cr
+tonny.ortiz@ucr.ac.cr
 
 - Pinto Umaña, Gustavo Alonso
 Heredia, Costa Rica. 
