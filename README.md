@@ -60,6 +60,7 @@ maria.andres@ucr.ac.cr
 
 - Ortiz Salazar, Tonny
 San José, Costa Rica. 
+Carné: B35054
 tonny.ortiz@ucr.ac.cr
 
 - Pinto Umaña, Gustavo Alonso
