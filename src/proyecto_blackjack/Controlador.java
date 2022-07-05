@@ -80,6 +80,7 @@ public class Controlador{
     public void iniciarRonda() {
         setPlantarse(1, false);
         setPlantarse(2, false);
+        mesa.setVictorias(juego.jugador1.getVictorias(),juego.jugador2.getVictorias());
         juego.inicializarRonda();
         turno(1);
     }
