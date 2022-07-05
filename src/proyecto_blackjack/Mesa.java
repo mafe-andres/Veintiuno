@@ -209,7 +209,6 @@ public class Mesa extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 468));
-        setPreferredSize(new java.awt.Dimension(700, 460));
         getContentPane().setLayout(null);
 
         ayuda.setForeground(new java.awt.Color(255, 255, 255));
@@ -250,7 +249,7 @@ public class Mesa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(PlantarseJug2);
-        PlantarseJug2.setBounds(530, 400, 90, 22);
+        PlantarseJug2.setBounds(530, 400, 90, 23);
 
         PlantarseJug1.setBackground(new java.awt.Color(0, 0, 0));
         PlantarseJug1.setForeground(new java.awt.Color(255, 255, 255));
@@ -268,7 +267,7 @@ public class Mesa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(PlantarseJug1);
-        PlantarseJug1.setBounds(80, 400, 90, 22);
+        PlantarseJug1.setBounds(80, 400, 90, 23);
 
         NuevoJuego.setBackground(new java.awt.Color(0, 0, 0));
         NuevoJuego.setForeground(new java.awt.Color(255, 255, 255));
@@ -281,7 +280,7 @@ public class Mesa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(NuevoJuego);
-        NuevoJuego.setBounds(290, 370, 120, 22);
+        NuevoJuego.setBounds(290, 370, 120, 23);
 
         carta10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

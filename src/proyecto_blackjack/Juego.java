@@ -9,7 +9,6 @@ public class Juego {
   private Mazo mazo;
   Jugador jugador1;
   Jugador jugador2;
-  private int victorias1, victorias2;
 
   /**
    * Constructor Juego. Crea dos jugadores y un mazo.
@@ -25,8 +24,6 @@ public class Juego {
    */
   public void inicializarJuego(){
     mazo.iniciarBaraja();
-    victorias1 = 0;
-    victorias2 = 0;
   }
   
   /**
@@ -131,6 +128,7 @@ public class Juego {
    * @return un string con el nombre del jugador, si es empate o si no hay ganador
    */
   public String ganador(){
+    int victorias1 = jugador1.getVictorias(), victorias2 = jugador2.getVictorias();
     int suma1 = jugador1.suma();
     int suma2 = jugador2.suma();
     String ganador = "";
@@ -161,6 +159,8 @@ public class Juego {
     }else{
         ganador = "No hay ganador";
     }
+    jugador1.setVictorias(victorias1);
+    jugador2.setVictorias(victorias2);
     return ganador;
   }
   

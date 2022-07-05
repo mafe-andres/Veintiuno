@@ -224,7 +224,6 @@ public class Controlador{
      */    
     public void setPlantarse(int jugador, boolean plantado){
         juego.setPlantarse(jugador, plantado);
-        //this.plantarse[posicion] = true;
     }
     
      
@@ -243,7 +242,6 @@ public class Controlador{
             }
         } else if (turno ==2) {
             if (juego.getPlantarse(1) == true){
-                System.out.println("Pantarse jug2" + juego.getPlantarse(2));
                 if (juego.getPlantarse(2) == true) {
                     turno(3);
                 }
