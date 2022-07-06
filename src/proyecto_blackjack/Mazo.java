@@ -51,4 +51,17 @@ public class Mazo {
     mazo.remove(0);
     return a;
   }
+  
+  public ArrayList<Carta> getMazo(){
+    return mazo;
+  }
+  
+  public int getSize() {
+    return mazo.size();
+  }
+  
+  public void setMazo(ArrayList<Carta> mazo){
+      this.mazo.clear();
+      this.mazo = mazo;
+  }
 }
