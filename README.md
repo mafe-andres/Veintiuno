@@ -44,7 +44,7 @@ Para cargar la partido haga click en cargar partida al inicio del juego. Etso bu
 ## Diseño
 El diseño del programa fue realizado en diagrams.net. 
 
-![Diagrama UML](UML_Veintiuno.png)
+![Diagrama UML](UML.png)
 
 Para poder ver el diagrama con más detalle haga click [aquí](https://drive.google.com/file/d/1VF_9fuAJ-BAckBGJ2vugzKBjVYAd620Y/view?usp=sharing) y abrá el archivo con la extensión diagrams.net
 
