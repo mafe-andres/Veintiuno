@@ -303,4 +303,23 @@ public class Controlador{
     public void cambiarAs(int jug, int pos) {
         juego.cambiarAs(jug, pos);
      }
+    
+    public boolean guardarPartida(){
+        boolean success = false;
+        if(juego.guardarPartida()){
+            success =  true;
+        }
+        return success;
+    }
+    
+    public void cargarPartida(){
+        if(juego.cargarPartida()){
+            inicio.setVisible(false);
+            mesa.setVisible(true);
+            mesa.setTextJug1(juego.jugador1.getNombre());
+            mesa.setTextJug2(juego.jugador2.getNombre());
+            mesa.setVictorias(juego.jugador1.getVictorias(),juego.jugador2.getVictorias());
+            turno(1);
+        }
+    }
 }
