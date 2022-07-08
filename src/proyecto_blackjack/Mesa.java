@@ -200,6 +200,7 @@ public class Mesa extends javax.swing.JFrame {
         ayuda = new javax.swing.JLabel();
         victlabel = new javax.swing.JLabel();
         pedirCarta = new javax.swing.JLabel();
+        GuardarPartida = new javax.swing.JButton();
         PlantarseJug2 = new javax.swing.JButton();
         PlantarseJug1 = new javax.swing.JButton();
         NuevoJuego = new javax.swing.JButton();
@@ -276,6 +277,19 @@ public class Mesa extends javax.swing.JFrame {
         getContentPane().add(pedirCarta);
         pedirCarta.setBounds(170, 80, 150, 90);
 
+        GuardarPartida.setBackground(new java.awt.Color(0, 0, 0));
+        GuardarPartida.setForeground(new java.awt.Color(255, 255, 255));
+        GuardarPartida.setText("Guardar Partida");
+        GuardarPartida.setActionCommand("Inciar Ronda");
+        GuardarPartida.setName("Repartir"); // NOI18N
+        GuardarPartida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarPartidaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(GuardarPartida);
+        GuardarPartida.setBounds(270, 400, 160, 22);
+
         PlantarseJug2.setBackground(new java.awt.Color(0, 0, 0));
         PlantarseJug2.setForeground(new java.awt.Color(255, 255, 255));
         PlantarseJug2.setText("Plantarse");
@@ -323,7 +337,7 @@ public class Mesa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(NuevoJuego);
-        NuevoJuego.setBounds(290, 370, 120, 22);
+        NuevoJuego.setBounds(270, 370, 160, 22);
 
         carta10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -678,10 +692,18 @@ public class Mesa extends javax.swing.JFrame {
     private void PlantarseJug2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlantarseJug2ActionPerformed
     }//GEN-LAST:event_PlantarseJug2ActionPerformed
 
+    private void GuardarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPartidaActionPerformed
+        // TODO add your handling code here:
+        if(controlador.guardarPartida()){
+            JOptionPane.showMessageDialog(null, "Se guardó la partida correctamente","Partida",JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_GuardarPartidaActionPerformed
+
     private Controlador controlador;
     private String jugador1;
     private String jugador2;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton GuardarPartida;
     private javax.swing.JButton NuevoJuego;
     private javax.swing.JButton PlantarseJug1;
     private javax.swing.JButton PlantarseJug2;

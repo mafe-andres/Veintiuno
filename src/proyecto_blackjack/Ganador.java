@@ -66,24 +66,19 @@ public class Ganador extends javax.swing.JFrame {
         lblJug2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lblTotal1 = new javax.swing.JLabel();
-        GuardarPartida = new javax.swing.JButton();
+        GuardarPartida1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTotal2.setText("TotalJug2");
-        jPanel1.add(lblTotal2, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 209, -1, -1));
 
         jLabel6.setText("Felicidades el ganador es :");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 268, 153, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 6, 199, 95));
 
         jLabel8.setText("¿Desea jugar de nuevo?");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 170, -1));
 
         btnSi.setBackground(new java.awt.Color(0, 0, 0));
         btnSi.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,7 +88,6 @@ public class Ganador extends javax.swing.JFrame {
                 btnSiActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, -1));
 
         btnNo.setBackground(new java.awt.Color(0, 0, 0));
         btnNo.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,32 +97,26 @@ public class Ganador extends javax.swing.JFrame {
                 btnNoActionPerformed(evt);
             }
         });
-        jPanel1.add(btnNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, -1));
 
         lblGanador.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         lblGanador.setForeground(new java.awt.Color(0, 204, 51));
         lblGanador.setText("Ganador");
-        jPanel1.add(lblGanador, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 268, 98, -1));
 
         lblJug1.setText("Jugador1");
-        jPanel1.add(lblJug1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 167, 91, -1));
 
         lblJug2.setText("Jugador2");
-        jPanel1.add(lblJug2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 209, 91, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Suma de las cartas: ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 133, 120, -1));
 
         lblTotal1.setText("TotalJug1");
-        jPanel1.add(lblTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 167, -1, -1));
 
-        GuardarPartida.setBackground(new java.awt.Color(0, 0, 0));
-        GuardarPartida.setForeground(new java.awt.Color(255, 255, 255));
-        GuardarPartida.setText("Guardar Partida");
-        GuardarPartida.setActionCommand("Inciar Ronda");
-        GuardarPartida.setName("Repartir"); // NOI18N
-        GuardarPartida.addActionListener(new java.awt.event.ActionListener() {
+        GuardarPartida1.setBackground(new java.awt.Color(0, 0, 0));
+        GuardarPartida1.setForeground(new java.awt.Color(255, 255, 255));
+        GuardarPartida1.setText("Guardar Partida");
+        GuardarPartida1.setActionCommand("Inciar Ronda");
+        GuardarPartida1.setName("Repartir"); // NOI18N
+        GuardarPartida1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuardarPartidaActionPerformed(evt);
             }
@@ -160,18 +148,13 @@ public class Ganador extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(lblGanador, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnSi)
-                                .addGap(58, 58, 58)
-                                .addComponent(btnNo))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(82, 82, 82)
+                        .addComponent(btnSi)
+                        .addGap(34, 34, 34)
+                        .addComponent(btnNo))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(GuardarPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -193,15 +176,13 @@ public class Ganador extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(lblGanador))
-                .addGap(33, 33, 33)
-                .addComponent(GuardarPartida)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel8)
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSi)
                     .addComponent(btnNo))
-                .addGap(15, 15, 15))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -214,8 +195,7 @@ public class Ganador extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(15, 15, 15))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -247,7 +227,7 @@ public class Ganador extends javax.swing.JFrame {
     
     private Controlador controlador;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton GuardarPartida;
+    private javax.swing.JButton GuardarPartida1;
     private javax.swing.JButton btnNo;
     private javax.swing.JButton btnSi;
     private javax.swing.JLabel jLabel3;
