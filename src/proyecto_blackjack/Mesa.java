@@ -38,6 +38,11 @@ public class Mesa extends javax.swing.JFrame {
         jugador2 = name;
     }
     
+    public void setVictorias(int victorias1, int victorias2) {
+        victorias1label.setText(Integer.toString(victorias1));
+        victorias2label.setText(Integer.toString(victorias2));
+    }
+    
     /**
      * Muestra un mensaje indicando el comienzo del turno del proximo jugador.
      */
@@ -188,7 +193,12 @@ public class Mesa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        victorias1label = new javax.swing.JLabel();
+        victorias2label = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
         ayuda = new javax.swing.JLabel();
+        victlabel = new javax.swing.JLabel();
         pedirCarta = new javax.swing.JLabel();
         PlantarseJug2 = new javax.swing.JButton();
         PlantarseJug1 = new javax.swing.JButton();
@@ -209,8 +219,30 @@ public class Mesa extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 468));
-        setPreferredSize(new java.awt.Dimension(700, 460));
         getContentPane().setLayout(null);
+
+        victorias1label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        victorias1label.setForeground(new java.awt.Color(255, 255, 255));
+        victorias1label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        victorias1label.setText("0");
+        getContentPane().add(victorias1label);
+        victorias1label.setBounds(310, 320, 10, 25);
+
+        victorias2label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        victorias2label.setForeground(new java.awt.Color(255, 255, 255));
+        victorias2label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        victorias2label.setText("0");
+        getContentPane().add(victorias2label);
+        victorias2label.setBounds(380, 320, 10, 25);
+
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(290, 310, 120, 40);
+
+        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator2);
+        jSeparator2.setBounds(350, 312, 60, 40);
 
         ayuda.setForeground(new java.awt.Color(255, 255, 255));
         ayuda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -222,6 +254,16 @@ public class Mesa extends javax.swing.JFrame {
         });
         getContentPane().add(ayuda);
         ayuda.setBounds(420, 90, 140, 70);
+
+        victlabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        victlabel.setForeground(new java.awt.Color(255, 255, 255));
+        victlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        victlabel.setText("Victorias");
+        victlabel.setMaximumSize(new java.awt.Dimension(100, 25));
+        victlabel.setMinimumSize(new java.awt.Dimension(100, 25));
+        victlabel.setPreferredSize(new java.awt.Dimension(100, 25));
+        getContentPane().add(victlabel);
+        victlabel.setBounds(306, 280, 90, 25);
 
         pedirCarta.setForeground(new java.awt.Color(255, 255, 255));
         pedirCarta.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -655,8 +697,13 @@ public class Mesa extends javax.swing.JFrame {
     private javax.swing.JLabel carta8;
     private javax.swing.JLabel carta9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel nameJug1;
     private javax.swing.JLabel nameJug2;
     private javax.swing.JLabel pedirCarta;
+    private javax.swing.JLabel victlabel;
+    private javax.swing.JLabel victorias1label;
+    private javax.swing.JLabel victorias2label;
     // End of variables declaration//GEN-END:variables
 }

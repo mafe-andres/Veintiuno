@@ -25,5 +25,9 @@ hs_err_pid*
 /dist/
 
 .history
+<<<<<<< HEAD
 build
 build.xml
+=======
+/build/
+>>>>>>> a0b427ce299331a588035dad1f78b080aea234e1

@@ -108,4 +108,13 @@ public class Jugador {
   public void setVictorias(int victorias){
     this.victorias = victorias;
   }
+  
+  /**
+   * Cambia la mano del jugador.
+   * @param mano arreglo con las cartas de la mano del jugador
+   */
+  public void setMano(ArrayList<Carta> mano){
+      this.mano.clear();
+      this.mano = mano;
+  }
 }
