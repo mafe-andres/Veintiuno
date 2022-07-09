@@ -38,11 +38,13 @@ El programa se navega con el uso de clicks y el teclado.
 Para ver su carta boca abajo sostenga el click en ella en cualquier momento durante su turno.
 Para pedir una carta al coupier haga click en donde dice pedir carta en cualquier momento durante su turno.
 Para ver las reglas del juego haga click en ¿Cómo Jugar? en cualquier momento del juego.
+Para guardar la partida haga click en guardar partida en cualquier momento durante el juego. La partida se guardara en la carpeta del ejecutable.
+Para cargar la partido haga click en cargar partida al inicio del juego. Etso buscara partidas guardadas en la carpeta.
 
 ## Diseño
 El diseño del programa fue realizado en diagrams.net. 
 
-![Diagrama UML](UML_Veintiuno.png)
+![Diagrama UML](UML.png)
 
 Para poder ver el diagrama con más detalle haga click [aquí](https://drive.google.com/file/d/1VF_9fuAJ-BAckBGJ2vugzKBjVYAd620Y/view?usp=sharing) y abrá el archivo con la extensión diagrams.net
 
