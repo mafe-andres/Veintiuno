@@ -66,6 +66,9 @@ public class Mazo {
     mazo.remove(0);
     return a;
   }
-  
 
+  public void writeMazo(String path){
+    //write mazo
+  }
+  
 }
