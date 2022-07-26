@@ -1,5 +1,3 @@
-package proyecto_blackjack;
-
 /**
  *
  * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
@@ -116,7 +114,7 @@ public class InicioView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        controlador.cargarPartida();
+        controlador.cargarJuego();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private Controlador controlador;

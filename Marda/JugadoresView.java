@@ -3,8 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_blackjack;
-
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -12,13 +10,13 @@ import javax.swing.JTextField;
  *
  * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
  */
-public class Jugadores extends javax.swing.JFrame {
+public class JugadoresView extends javax.swing.JFrame {
 
     /**
      * Constructor Jugadore. Crea ventana para preguntar los nombres de los jugadores.
      * @param controlador una instacia de controlador al que la vista va a notificar
      */
-    public Jugadores(Controlador controlador) {
+    public JugadoresView(Controlador controlador) {
         initComponents();
         this.controlador = controlador;
         setTitle("Jugadores");

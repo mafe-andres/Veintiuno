@@ -1,4 +1,3 @@
-package proyecto_blackjack;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -42,7 +41,7 @@ public abstract class Controlador{
 
     public void jugar(){
         nuevaRonda();
-        mesa.mostrarTurno();
+        mesaView.mostrarTurno();
         turno = 1;
         turno();
     }
@@ -62,10 +61,11 @@ public abstract class Controlador{
         // mesa->cargarMesa(path);
     }
 
-    public void guardarJuego(){
+    public boolean guardarJuego(){
         //get path maybe?
         String path = "";
-        mesa->writeMesa(path);
+        mesa.writeMesa(path);
+        return true;
     }
 
     abstract void nuevaRonda();
