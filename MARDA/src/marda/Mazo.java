@@ -1,4 +1,4 @@
-package proyecto_blackjack;
+package marda;
 
 import java.util.ArrayList;
 import java.util.*;
@@ -10,16 +10,16 @@ import java.util.*;
 public class Mazo {
 
   private ArrayList<Carta> mazo = new ArrayList<Carta>();
-  private numCartas;
-  private numPalos;
+  private int numCartas;
+  private int numPalos;
 
   /**
    * Constructor Mazo. Limpa el mazo, agrega cartas y las mezcla.
    */
-  public void Mazo(numCartas, numPalos){
-    this->numCartas = numCartas;
-    this->numPalos = numPalos;
-    iniciarBaraja()
+  public Mazo(int numCartas, int numPalos){
+    this.numCartas = numCartas;
+    this.numPalos = numPalos;
+    iniciarBaraja();
   }
   
   /**
@@ -30,7 +30,7 @@ public class Mazo {
     Carta cartaNueva;
     for(int i = 1; i <= numCartas; i++ ){
       for (int j = 1; j <= numPalos; j++){
-        cartaNueva = new Carta(i,j)
+        cartaNueva = new Carta(i,j,i);
         mazo.add(cartaNueva);
       }
     }
@@ -50,11 +50,10 @@ public class Mazo {
     return mazo.size();
   }
 
-  public Carta setCartaTop(Carta carta){
+  public void setCartaTop(Carta carta){
     Collections.reverse(mazo);
-    list.add(carta);
+    mazo.add(carta);
     Collections.reverse(mazo);
-    return a;
   }
 
   /**
@@ -67,7 +66,7 @@ public class Mazo {
     return a;
   }
 
-  public void writeMazo(String path){
+  public void escribirMazo(String path){
     //write mazo
   }
   

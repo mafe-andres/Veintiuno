@@ -2,7 +2,7 @@
  *
  * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
  */
-public class Veintiuno {
+public class Main {
     
     /**
     * Crea una nueva instancia de controlador y lo inicia

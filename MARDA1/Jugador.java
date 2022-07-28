@@ -1,5 +1,3 @@
-package proyecto_blackjack;
-
 import java.util.ArrayList; 
 
 /**
@@ -112,5 +110,9 @@ public class Jugador {
     this.puntaje = puntaje;
   }
   
+  public void escribirJugador(String path){
+    //write
+  }
+
   }
   

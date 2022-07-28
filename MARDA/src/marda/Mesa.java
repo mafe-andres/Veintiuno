@@ -1,3 +1,5 @@
+package marda;
+
 import java.util.ArrayList;
 
 /**
@@ -6,11 +8,11 @@ import java.util.ArrayList;
  */
 public abstract class Mesa {
 
-    private jugador1;
-    private jugador2;
-    private mazo;
-    private ArrayList<Carta> cartaComunes = new ArrayList<Carta>();
-    private ArrayList<Carta> cartasDesechadas = new ArrayList<Carta>();
+    protected Jugador jugador1;
+    protected Jugador jugador2;
+    protected Mazo mazo;
+    protected ArrayList<Carta> cartaComunes = new ArrayList<Carta>();
+    protected ArrayList<Carta> cartasDesechadas = new ArrayList<Carta>();
 
     public Mesa(){
     }
@@ -31,14 +33,14 @@ public abstract class Mesa {
         return jugador2;
     }
 
-    public void writeMesa(String path){
-        jugador1->writeJugador(path);
-        jugador2->writeJugador(path);
-        mazo->writeMazo(path);
+    public void escribirMesa(String path){
+        jugador1.escribirJugador(path);
+        jugador2.escribirJugador(path);
+        mazo.escribirMazo(path);
         //write cartas comunes y desechadas
     }
 
-    public void cargarMesa(Strign path){
+    public void cargarMesa(String path){
         //cargar mesa
         //get jugadores, mazo, cartas
     }

@@ -12,10 +12,8 @@ public class MesaView extends javax.swing.JFrame {
      * Constructor Mesa. Crea ventana donde se va jugar.
      * @param controlador una instacia de controlador al que la vista va a notificar
      */
-    public MesaView(Controlador controlador) {
-        this.setLocationRelativeTo(null);
-        initComponents();
-        this.controlador = controlador;
+    public MesaView() {
+
     }
     
     /**
@@ -189,7 +187,7 @@ public class MesaView extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    protected void initComponents() {
 
         victorias1label = new javax.swing.JLabel();
         victorias2label = new javax.swing.JLabel();
@@ -697,9 +695,9 @@ public class MesaView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_GuardarPartidaActionPerformed
 
-    private Controlador controlador;
-    private String jugador1;
-    private String jugador2;
+    protected Controlador controlador;
+    protected String jugador1;
+    protected String jugador2;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton GuardarPartida;
     private javax.swing.JButton NuevoJuego;

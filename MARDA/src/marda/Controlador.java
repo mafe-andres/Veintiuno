@@ -1,3 +1,5 @@
+package marda;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -8,11 +10,11 @@ import java.util.Objects;
  */
 public abstract class Controlador{
 
-    private Mesa mesa;
-    private MesaView mesaView;
-    private JugadoresView jugadoresView;
-    private InicioView inicioView;
-    private int turno;
+    protected Mesa mesa;
+    protected MesaView mesaView;
+    protected JugadoresView jugadoresView;
+    protected InicioView inicioView;
+    protected int turno;
         
      /**
      * Constructor de la clase, inicializa las clases juego y mesa
@@ -34,9 +36,9 @@ public abstract class Controlador{
         jugadoresView.setVisible(false);
         mesa.getJugador1().setNombre(jugador1);
         mesa.getJugador2().setNombre(jugador2);
-        mesaView.setVisible(true);
         mesaView.setTextJug1(jugador1);
         mesaView.setTextJug2(jugador2);
+        mesaView.setVisible(true);
     }
 
     public void jugar(){
@@ -54,6 +56,7 @@ public abstract class Controlador{
         return turno;
     }
 
+    //overridable
     public void cargarJuego(){
         // //get path maybe?
         // mesa = new Mesa();
@@ -64,9 +67,29 @@ public abstract class Controlador{
     public boolean guardarJuego(){
         //get path maybe?
         String path = "";
-        mesa.writeMesa(path);
+        mesa.escribirMesa(path);
         return true;
     }
+
+    //override para otras 
+    public String getRutaCarta(int numero, int palo){
+        String nombre = "";
+          switch(palo){
+              case 0:
+                  nombre = "/Imagenes/" + numero + "treboles.png";
+                  break;
+              case 1:
+                  nombre = "/Imagenes/" + numero + "picas.png";
+                  break;
+              case 2:
+                  nombre = "/Imagenes/" + numero + "corazones.png";
+                  break;
+              case 3:
+                  nombre = "/Imagenes/" + numero + "diamantes.png";
+                  break;
+          }
+        return nombre;
+      }
 
     abstract void nuevaRonda();
     abstract void turno();
