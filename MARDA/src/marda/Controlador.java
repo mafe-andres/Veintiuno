@@ -11,7 +11,7 @@ import java.util.Objects;
 public abstract class Controlador{
 
     protected Mesa mesa;
-    protected MesaView mesaView;
+    protected MesaView21 mesaView;
     protected JugadoresView jugadoresView;
     protected InicioView inicioView;
     protected int turno;

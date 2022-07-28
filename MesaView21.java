@@ -1,4 +1,4 @@
-package marda;
+package proyecto_blackjack;
 
 import java.util.HashSet;
 import javax.swing.ImageIcon;
@@ -8,13 +8,13 @@ import javax.swing.JOptionPane;
  *
  * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
  */
-public class MesaView21 extends javax.swing.JFrame {
+public class Mesa extends javax.swing.JFrame {
 
     /**
      * Constructor Mesa. Crea ventana donde se va jugar.
      * @param controlador una instacia de controlador al que la vista va a notificar
      */
-    public MesaView21(Controlador21 controlador) {
+    public Mesa(Controlador controlador) {
         this.setLocationRelativeTo(null);
         initComponents();
         this.controlador = controlador;
@@ -524,10 +524,10 @@ public class MesaView21 extends javax.swing.JFrame {
      * @param evt Evento.
      */
     private void carta1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta1MousePressed
-       if(controlador.getTurno() == 1){
-           ImageIcon front = new ImageIcon(getClass().getResource(controlador.getCartaOculta(1)));
-           carta1.setIcon(front);
-       }
+        if(controlador.getTurno() == 1){
+            ImageIcon front = new ImageIcon(getClass().getResource(controlador.getCartaOculta(1)));
+            carta1.setIcon(front);
+        }
     }//GEN-LAST:event_carta1MousePressed
 
     /**
@@ -583,10 +583,10 @@ public class MesaView21 extends javax.swing.JFrame {
      * @param evt Evento.
      */
     private void carta6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carta6MousePressed
-//        if(controlador.getTurno() == 2){
-//            ImageIcon front = new ImageIcon(getClass().getResource(controlador.getCartaOculta(2)));
-//            carta6.setIcon(front);
-//        }
+        if(controlador.getTurno() == 2){
+            ImageIcon front = new ImageIcon(getClass().getResource(controlador.getCartaOculta(2)));
+            carta6.setIcon(front);
+        }
     }//GEN-LAST:event_carta6MousePressed
 
     /**
@@ -639,8 +639,8 @@ public class MesaView21 extends javax.swing.JFrame {
      * @param evt Evento.
      */
     private void pedirCartaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pedirCartaMouseClicked
-//        controlador.pedirCarta();
-//        controlador.nextTurno();
+        controlador.pedirCarta();
+        controlador.nextTurno();
     }//GEN-LAST:event_pedirCartaMouseClicked
 
     /**
@@ -673,8 +673,8 @@ public class MesaView21 extends javax.swing.JFrame {
      * @param evt Evento.
      */
     private void PlantarseJug1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantarseJug1MouseClicked
-//        controlador.verificarAses();
-//        PlantarseJug1.setVisible(false);
+        controlador.verificarAses();
+        PlantarseJug1.setVisible(false);
     }//GEN-LAST:event_PlantarseJug1MouseClicked
 
     private void carta1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_carta1PropertyChange
@@ -685,8 +685,8 @@ public class MesaView21 extends javax.swing.JFrame {
      * @param evt Evento.
      */
     private void PlantarseJug2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlantarseJug2MouseClicked
-//        controlador.verificarAses();
-//        PlantarseJug2.setVisible(false);
+        controlador.verificarAses();
+        PlantarseJug2.setVisible(false);
     }//GEN-LAST:event_PlantarseJug2MouseClicked
 
     private void PlantarseJug2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlantarseJug2ActionPerformed
@@ -694,12 +694,12 @@ public class MesaView21 extends javax.swing.JFrame {
 
     private void GuardarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPartidaActionPerformed
         // TODO add your handling code here:
-//        if(controlador.guardarPartida()){
-//            JOptionPane.showMessageDialog(null, "Se guardó la partida correctamente","Partida",JOptionPane.INFORMATION_MESSAGE);
-//        }
+        if(controlador.guardarPartida()){
+            JOptionPane.showMessageDialog(null, "Se guardó la partida correctamente","Partida",JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_GuardarPartidaActionPerformed
 
-    private Controlador21 controlador;
+    private Controlador controlador;
     private String jugador1;
     private String jugador2;
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -18,10 +18,11 @@ public class JugadoresView extends javax.swing.JFrame {
      * Constructor Jugadore. Crea ventana para preguntar los nombres de los jugadores.
      * @param controlador una instacia de controlador al que la vista va a notificar
      */
-    public JugadoresView(Controlador controlador) {
-        initComponents();
+    public JugadoresView(Controlador controlador, String logoPath) {
         this.controlador = controlador;
+        this.logoPath = logoPath;
         setTitle("Jugadores");
+        initComponents();
     }
 
     /**
@@ -146,6 +147,7 @@ public class JugadoresView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private Controlador controlador;
+    private String logoPath;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel jLabel1;

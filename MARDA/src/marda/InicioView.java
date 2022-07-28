@@ -10,10 +10,11 @@ public class InicioView extends javax.swing.JFrame {
      * Constructor Inicio. Crea ventana para preguntar si se va a inciar una partida nueva o cargar una.
      * @param controlador una instacia de controlador al que la vista va a notificar
      */
-    public InicioView(Controlador controlador, String nombreJuego) {
-        initComponents();
+    public InicioView(Controlador controlador, String nombreJuego, String logoPath) {
         this.controlador = controlador;
         this.nombreJuego = nombreJuego;
+        this.logoPath = logoPath;
+        initComponents();
         setLocationRelativeTo(null);
         setTitle(this.nombreJuego);
     }
@@ -45,7 +46,7 @@ public class InicioView extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource(logoPath))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Bienvenidos(as) a "+ nombreJuego);
@@ -121,6 +122,7 @@ public class InicioView extends javax.swing.JFrame {
 
     private Controlador controlador;
     private String nombreJuego;
+    private String logoPath;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarPartida;
     private javax.swing.JButton jButton1;
