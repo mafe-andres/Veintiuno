@@ -7,10 +7,9 @@ public class Mesa21 extends Mesa{
     final int CARTASXMES = 10;
     final int CARTASXJUG = 5;
  
-    public Mesa21(Jugador jugador1, Jugador jugador2, Mazo mazo){
-        this.jugador1 = jugador1;
-        this.jugador2 = jugador2;
+    public Mesa21(Jugador21 jugador1, Jugador21 jugador2, Mazo mazo){
         this.mazo = mazo;
+        setJugadores(jugador1, jugador2);
     }
 
     public ArrayList<Integer> getCartasMesa(){
@@ -40,6 +39,43 @@ public class Mesa21 extends Mesa{
           cartas.add(palo);
         }
         return cartas;
+    }
+
+    public String ganador(){
+      int victorias1 = jugador1.getVictorias(), victorias2 = jugador2.getVictorias();
+      int suma1 = jugador1.suma();
+      int suma2 = jugador2.suma();
+      String ganador = "";
+      if(suma1 <= 21 && suma2 <= 21) {
+        if (suma1>suma2) {
+          victorias1++;  
+          ganador = jugador1.getNombre();
+        } else if (suma1<suma2) {
+          victorias2++;
+          ganador = jugador2.getNombre();
+        } else if (suma1==suma2) {
+          if (jugador1.getMano().size() < jugador2.getMano().size())  {
+            victorias1++; 
+            ganador = jugador1.getNombre();
+          } else if (jugador1.getMano().size() > jugador2.getMano().size()){
+              victorias2++;
+              ganador = jugador2.getNombre();
+          }else{
+              ganador = "Empate";
+          }
+        }
+      } else if (suma1 <= 21) {
+          victorias1++;
+          ganador = jugador1.getNombre();
+      } else if (suma2 <=21) {
+          victorias2++;
+          ganador = jugador2.getNombre();
+      }else{
+          ganador = "No hay ganador";
       }
+      jugador1.setVictorias(victorias1);
+      jugador2.setVictorias(victorias2);
+      return ganador;
+    }
 
 }

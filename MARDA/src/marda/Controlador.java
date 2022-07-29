@@ -8,12 +8,13 @@ import java.util.Objects;
  * @author: Andy Alvarado, Antony Ortiz, Gustavo Pinto y Maria Andres
  * @version: 2022
  */
-public abstract class Controlador{
+public abstract class Controlador<MesaT extends Mesa> {
 
-    protected Mesa mesa;
+    protected MesaT mesa;
     protected MesaView21 mesaView;
     protected JugadoresView jugadoresView;
     protected InicioView inicioView;
+    protected GanadorView ganadorView;
     protected int turno;
         
      /**
@@ -21,6 +22,10 @@ public abstract class Controlador{
      * @param
      */
     public Controlador() {
+    }
+
+    public void setMesa(MesaT mesa){
+        this.mesa = mesa;
     }
 
     public void iniciar(){
@@ -42,10 +47,8 @@ public abstract class Controlador{
     }
 
     public void jugar(){
-        nuevaRonda();
-        mesaView.mostrarTurno();
         turno = 1;
-        turno();
+        nuevaRonda();
     }
 
     public void setTurno(int turno){
@@ -94,5 +97,13 @@ public abstract class Controlador{
     abstract void nuevaRonda();
     abstract void turno();
     abstract void actualizarCartas();
-    abstract void ganador(int ganador);
+    abstract void finalizarJuego();
+    abstract void finalizarRonda();
+    
+    public void ganador(){
+        ganadorView.setJugador1(mesa.jugador1.getNombre(), mesa.jugador1.suma());
+        ganadorView.setJugador2(mesa.jugador2.getNombre(), mesa.jugador2.suma());
+        ganadorView.setGanador(mesa.ganador());
+        ganadorView.setVisible(true);
+    }
 }

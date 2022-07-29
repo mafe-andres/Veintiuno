@@ -8,10 +8,10 @@ import java.util.ArrayList;
  */
 public class Jugador {
 
-  private String nombre = " ";
-  private int puntaje = 0;
-  private int victorias = 0;
-  private ArrayList<Carta> mano = new ArrayList<Carta>();
+  protected String nombre = " ";
+  protected int puntaje = 0;
+  protected int victorias = 0;
+  protected ArrayList<Carta> mano = new ArrayList<Carta>();
 
   /**
    * Constructor Jugador.

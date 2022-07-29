@@ -12,6 +12,5 @@ public class Main {
     public static void main(String args[]) {
         Controlador controlador = new Controlador21(); //concreto
         controlador.iniciar();
-        controlador.getCartaOculta(1);
     }
 }

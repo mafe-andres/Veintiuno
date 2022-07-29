@@ -6,15 +6,20 @@ import java.util.ArrayList;
  *
  * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
  */
-public abstract class Mesa {
+public abstract class Mesa <JugadorT extends Jugador> {
 
-    protected Jugador jugador1;
-    protected Jugador jugador2;
+    protected JugadorT jugador1;
+    protected JugadorT jugador2;
     protected Mazo mazo;
     protected ArrayList<Carta> cartaComunes = new ArrayList<Carta>();
     protected ArrayList<Carta> cartasDesechadas = new ArrayList<Carta>();
 
     public Mesa(){
+    }
+
+    public void setJugadores(JugadorT jugador1, JugadorT jugador2){
+        this.jugador1 = jugador1;
+        this.jugador2 = jugador2;
     }
 
     public ArrayList<Carta> getCartasComunes(){
@@ -44,4 +49,6 @@ public abstract class Mesa {
         //cargar mesa
         //get jugadores, mazo, cartas
     }
+
+    abstract String ganador();
 }
