@@ -112,9 +112,35 @@ public class Jugador {
     this.puntaje = puntaje;
   }
   
-  public void escribirJugador(String path){
-    //write
+  public String toString(){
+    String jugadorStr = nombre + "," + puntaje + "," + victorias + ",";
+    for (int i = 0; i < mano.size(); i++){
+      Carta carta = mano.get(i);
+      String cartaInfo = Integer.toString(carta.getNumero()) + "-" + Integer.toString(carta.getPalo()) + "-" + Integer.toString(carta.getValor()) + "/";
+      jugadorStr += cartaInfo;
+    }
+    return jugadorStr;
   }
 
+  public void cargar(String infoJugador){
+    String[] datosJugador1 = infoJugador.split(",");
+    this.nombre = datosJugador1[0];
+    this.puntaje = Integer.parseInt(datosJugador1[1]);
+    this.victorias = Integer.parseInt(datosJugador1[2]);
+    this.mano = doArray(datosJugador1[3]);
   }
+
+  private ArrayList<Carta> doArray(String mano){
+    ArrayList<Carta> cartasList = new ArrayList<Carta>();
+    String[] cartas = mano.split("/");
+    Carta carta;
+    for(int i = 0; i < cartas.length; i++){
+        String[] datos = cartas[i].split("-");
+        carta = new Carta(Integer.parseInt(datos[0]), Integer.parseInt(datos[1]), Integer.parseInt(datos[2]));
+        cartasList.add(carta);
+    }
+    return cartasList;
+  }
+
+}
   

@@ -15,7 +15,8 @@ public class Controlador21 extends Controlador{
     public Controlador21(){
         my_jugador1 = new Jugador21();
         my_jugador2 = new Jugador21();
-        Mazo mazo = new Mazo(numCartasXPalo, numPalos);
+        String[] palos = {"treboles", "picas" ,"corazones", "diamantes"};
+        Mazo mazo = new Mazo(numCartasXPalo, numPalos, palos);
         my_mesa = new Mesa21(my_jugador1, my_jugador2, mazo);
         mesaView = new MesaView21(this);
         inicioView = new InicioView(this, "VeintiUno", "/Imagenes/Logo.png"); 

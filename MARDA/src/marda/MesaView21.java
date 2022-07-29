@@ -694,9 +694,9 @@ public class MesaView21 extends javax.swing.JFrame {
 
     private void GuardarPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPartidaActionPerformed
         // TODO add your handling code here:
-//        if(controlador.guardarPartida()){
-//            JOptionPane.showMessageDialog(null, "Se guardó la partida correctamente","Partida",JOptionPane.INFORMATION_MESSAGE);
-//        }
+       if(controlador.guardarJuego()){
+           JOptionPane.showMessageDialog(null, "Se guardó la partida correctamente","Partida",JOptionPane.INFORMATION_MESSAGE);
+       }
     }//GEN-LAST:event_GuardarPartidaActionPerformed
 
     private Controlador21 controlador;

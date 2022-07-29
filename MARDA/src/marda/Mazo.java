@@ -9,16 +9,18 @@ import java.util.*;
  */
 public class Mazo {
 
-  private ArrayList<Carta> mazo = new ArrayList<Carta>();
-  private int numCartas;
-  private int numPalos;
+  protected ArrayList<Carta> mazo = new ArrayList<Carta>();
+  protected int numCartas;
+  protected int numPalos;
+  protected String[] palos;
 
   /**
    * Constructor Mazo. Limpa el mazo, agrega cartas y las mezcla.
    */
-  public Mazo(int numCartas, int numPalos){
+  public Mazo(int numCartas, int numPalos, String[] palos){
     this.numCartas = numCartas;
     this.numPalos = numPalos;
+    this.palos = palos;
     iniciarBaraja();
   }
   
@@ -50,6 +52,10 @@ public class Mazo {
     return mazo.size();
   }
 
+  public String[] getPalos() {
+    return palos;
+  }
+
   public void setCartaTop(Carta carta){
     Collections.reverse(mazo);
     mazo.add(carta);
@@ -66,8 +72,30 @@ public class Mazo {
     return a;
   }
 
-  public void escribirMazo(String path){
-    //write mazo
+  public String toString(){
+    String mazoStr = "";
+    for (int i =0; i < mazo.size(); i++){
+      Carta carta = mazo.get(i);
+      String cartaInfo = Integer.toString(carta.getNumero()) + "-" + Integer.toString(carta.getPalo()) + "-" + Integer.toString(carta.getValor()) + "/";
+      mazoStr += cartaInfo;
+    }
+    return mazoStr;
+  }
+
+  public void cargar(String infoMazo){
+    mazo = doArray(infoMazo);
+  } 
+
+  public ArrayList<Carta> doArray(String mano){
+    ArrayList<Carta> cartasList = new ArrayList<Carta>();
+    String[] cartas = mano.split("/");
+    Carta carta;
+    for(int i = 0; i < cartas.length; i++){
+        String[] datos = cartas[i].split("-");
+        carta = new Carta(Integer.parseInt(datos[0]), Integer.parseInt(datos[1]), Integer.parseInt(datos[2]));
+        cartasList.add(carta);
+    }
+    return cartasList;
   }
   
 }

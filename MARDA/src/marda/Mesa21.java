@@ -8,7 +8,7 @@ public class Mesa21 extends Mesa{
     final int CARTASXJUG = 5;
  
     public Mesa21(Jugador21 jugador1, Jugador21 jugador2, Mazo mazo){
-        this.mazo = mazo;
+        setMazo(mazo);
         setJugadores(jugador1, jugador2);
     }
 
