@@ -1,4 +1,4 @@
-# Veintiuno / Blackjack
+# Veintiuno / Blackjack 
 
 Este juego consiste en un enfrentamiento entre 2 jugadores comparando las cartas que estos tengan en
 su mano, intentanto conseguir 21 puntos o el número más cercano posible sin pasarse. Al iniciar
@@ -13,26 +13,37 @@ Reglas
 4. Cuando el valor total de tu mano es de 22 o más, esto se conoce comúnmente como "bancarrota", y automáticamente perderás la ronda.
 5. En caso de un empate, ganará el jugador con menos cartas en su mano. Si ambos tuvieran la misma cantidad de cartas, habría un empate.
 
-## Manual de Usuario
+# MARDA
 
-### Construcción y compilacion
+Se desarrolló un Marco Adaptable y Reutilizable para el Desarrollo de Aplicaciones, especificamente para juegos de cartas. Se implemento la mayoría de código reutilizable de la version anterior "Prototipo". Con la utilizacion de clases abstractas y clases abstractas emplantilladas. A partir de ello, hicimos clases concretas especificas para el juego Blackjack o 21.
+
+## Diseño
+El diseño del programa fue realizado en diagrams.net. 
+
+![Diagrama UML](https://github.com/mafe-andres/Veintiuno/blob/main/MARDA/img/Diagrama%20Marda.png)
+
+Para poder ver el diagrama con más detalle haga click [aquí](https://drive.google.com/file/d/1hV0hI0wf2V6dw4bN11yNN_6bazcWYwvP/view?usp=sharing) y abrá el archivo con la extensión diagrams.net
+
+# Manual de Usuario
+
+## Construcción y compilacion
 El programa se realizó usando Netbeans Ant. Los archivos de construccion están formateados para Netbeans, para construir el programa se recomienda instalar Netbeans y usar las opciones de compilación que provee.
 
 Opcionalmente se adjuntan las instrucciones para construccion desde terminal:
-1. Desde terminal entre al directorio /Veintiuno/src/proyecto_blackjack/
-2. Use el comando para compilar: javac *.java
+1. Desde terminal entre al directorio /Veintiuno/MARDA/src/
+2. Use el comando para compilar el main: javac *.java
 
-### Ejecución del programa
+## Ejecución del programa
 Se ha incluído en el repositorio una versión ejecutable del código más reciente para facilidad de revisión. Alternativamente se puede usar Netbeans para correr el programa.
 
 Si compiló usando la terminal anteriormente:
-1. Desde terminal entre al directorio /Veintiuno/src/ 
-2. Comando para ejecutar: java proyecto_blackjack.Veintiuno
+1. Desde terminal entre al directorio /Veintiuno/MARDA/src/ 
+2. Comando para ejecutar: java main.java
 
-### Terminar el programa
+## Terminar el programa
 El programa terminará por si solo una vez que el jugador indique que ya no quiere jugar más o cuando se haga click en alguna equis de las diferentes ventanas.
 
-### Uso del juego
+## Uso del juego
 El programa se navega con el uso de clicks y el teclado.
 
 Para ver su carta boca abajo sostenga el click en ella en cualquier momento durante su turno.
@@ -41,14 +52,7 @@ Para ver las reglas del juego haga click en ¿Cómo Jugar? en cualquier momento 
 Para guardar la partida haga click en guardar partida en cualquier momento durante el juego. La partida se guardara en la carpeta del ejecutable.
 Para cargar la partido haga click en cargar partida al inicio del juego. Etso buscara partidas guardadas en la carpeta.
 
-## Diseño
-El diseño del programa fue realizado en diagrams.net. 
-
-![Diagrama UML](https://github.com/mafe-andres/Veintiuno/blob/main/MARDA/img/Diagrama%20Marda.png)
-
-Para poder ver el diagrama con más detalle haga click [aquí](https://drive.google.com/file/d/1VF_9fuAJ-BAckBGJ2vugzKBjVYAd620Y/view?usp=sharing) y abrá el archivo con la extensión diagrams.net
-
-## Participantes
+# Participantes
 
 - Alvarado Machado, Andy Vinicio
 Cartago, Costa Rica. 
@@ -59,11 +63,6 @@ andy.alvaradomachado@ucr.ac.cr
 San José, Costa Rica. 
 Carné: C00442
 maria.andres@ucr.ac.cr
-
-- Ortiz Salazar, Tonny
-San José, Costa Rica. 
-Carné: B35054
-tonny.ortiz@ucr.ac.cr
 
 - Pinto Umaña, Gustavo Alonso
 Heredia, Costa Rica. 
