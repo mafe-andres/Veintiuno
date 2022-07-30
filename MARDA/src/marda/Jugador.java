@@ -14,7 +14,7 @@ public class Jugador {
   protected ArrayList<Carta> mano = new ArrayList<Carta>();
 
   /**
-   * Constructor Jugador.
+   * Constructor Jugador tipo Abstracto.
    */
   public Jugador() {
   }
@@ -112,6 +112,11 @@ public class Jugador {
     this.puntaje = puntaje;
   }
   
+  /**
+   * Cambia la cantidad de victorias del jugador.
+   * @return la informacion del jugador en un string
+   */
+  @Override
   public String toString(){
     String jugadorStr = nombre + "," + puntaje + "," + victorias + ",";
     for (int i = 0; i < mano.size(); i++){
@@ -122,6 +127,10 @@ public class Jugador {
     return jugadorStr;
   }
 
+  /**
+   * Carga la informacion del jugador que recibe como parametro y lo guarda en las variables correspondientes.
+   * @param infoJugador informacion del jugador
+   */
   public void cargar(String infoJugador){
     String[] datosJugador1 = infoJugador.split(",");
     this.nombre = datosJugador1[0];
@@ -130,6 +139,10 @@ public class Jugador {
     this.mano = doArray(datosJugador1[3]);
   }
 
+   /**
+   * Hace un array o mazo de cartas a partir de la mano que recibe como parametro
+   * @param mano mano del jugador que se desea cargar
+   */
   private ArrayList<Carta> doArray(String mano){
     ArrayList<Carta> cartasList = new ArrayList<Carta>();
     String[] cartas = mano.split("/");

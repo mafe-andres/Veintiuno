@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
+ * @author Andy Alvarado, María Andres, Gustavo Pinto
  */
 public class MesaView21 extends javax.swing.JFrame {
 
@@ -38,6 +38,11 @@ public class MesaView21 extends javax.swing.JFrame {
         jugador2 = name;
     }
     
+    /**
+     * Cambia las victorias de cada jugador
+     * @param victorias1 cantidad de victorias del jugador 1
+     * @param victorias2 cantidad de victorias del jugador 1
+     */
     public void setVictorias(int victorias1, int victorias2) {
         victorias1label.setText(Integer.toString(victorias1));
         victorias2label.setText(Integer.toString(victorias2));

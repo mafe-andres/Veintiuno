@@ -190,6 +190,10 @@ public class MesaView extends javax.swing.JFrame {
         
     }                                  
 
+    /**
+     * Indica cuando se hace click en el boton de guardar. Muestra un mensaje si se guardo el juego.
+     * @param evt Evento.
+     */
     private void GuardarPartidaActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
         if(controlador.guardarJuego()){

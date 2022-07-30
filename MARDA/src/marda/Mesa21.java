@@ -6,12 +6,22 @@ public class Mesa21 extends Mesa{
 
     final int CARTASXMES = 10;
     final int CARTASXJUG = 5;
- 
+    
+    /**
+     * Constructor Mesa21. Se encarga de crear una mesa a partir de los jugadores y el mazo
+     * @param jugador1 variable de tipo jugador que contiene al primer jugador
+     * @param jugador2 variable de tipo jugador que contiene al segundo jugador
+     * @param mazo el mazo que se va a utilizar en el juego
+     */
     public Mesa21(Jugador21 jugador1, Jugador21 jugador2, Mazo mazo){
         setMazo(mazo);
         setJugadores(jugador1, jugador2);
     }
-
+    
+    /**
+     * Se encarga de almacenar todas las cartas que hay en la mesa en un arreglo de tipo carta
+     * @return las cartas de la mesa en un arreglo de tipo carta
+     */
     public ArrayList<Integer> getCartasMesa(){
         ArrayList<Integer> cartas = new ArrayList<Integer>(2*CARTASXMES);
         int numero =0;
@@ -40,7 +50,11 @@ public class Mesa21 extends Mesa{
         }
         return cartas;
     }
-
+    
+    /**
+     * Se encarga de sacar el puntaje de cada jugador y determinar quien es el jugador
+     * @return el ganador de la ronda
+     */
     public String ganador(){
       int victorias1 = jugador1.getVictorias(), victorias2 = jugador2.getVictorias();
       int suma1 = jugador1.suma();

@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Andy Alvarado, María Andres, Tonny Ortiz, Gustavo Pinto
+ * @author Andy Alvarado, María Andres, Gustavo Pinto
  */
 public abstract class Mesa <JugadorT extends Jugador, MazoT extends Mazo> {
 
@@ -18,7 +18,10 @@ public abstract class Mesa <JugadorT extends Jugador, MazoT extends Mazo> {
     protected MazoT mazo;
     protected ArrayList<Carta> cartaComunes = new ArrayList<Carta>();
     protected ArrayList<Carta> cartasDesechadas = new ArrayList<Carta>();
-
+    
+    /**
+     * Constructor Mesa
+     */
     public Mesa(){
     }
 
@@ -26,27 +29,48 @@ public abstract class Mesa <JugadorT extends Jugador, MazoT extends Mazo> {
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
     }
-
+    
+    /**
+     * Cambiar el mazo del juego por un mazo que recibe como parametro
+     * @param mazo mazo para cambiar
+     */
     public void setMazo(MazoT mazo){
         this.mazo = mazo;
     }
-
+    
+    /**
+     * Retorna un array de tipo carta con las cartas comunes
+     * @return cartas comunes
+     */
     public ArrayList<Carta> getCartasComunes(){
         return cartaComunes;
     }
-
+    
+    /**
+     * Retorna un array de tipo carta con las cartas descartadas
+     * @return cartas desechadas
+     */
     public ArrayList<Carta> getCartasDesechadas(){
         return cartasDesechadas;
     }
-
+    
+    /**
+     * Retorna jugador 1 de la mesa
+     * @return el jugador 1
+     */
     public Jugador getJugador1(){
         return jugador1;
     }
     
+    /**
+     * Retorna jugador 2 de la mesa
+     * @return el jugador 2
+     */
     public Jugador getJugador2(){
         return jugador2;
     }
-
+    
+    @Override
     public String toString(){
 
         String jugador1Str = jugador1.toString() + "\n";
@@ -81,6 +105,10 @@ public abstract class Mesa <JugadorT extends Jugador, MazoT extends Mazo> {
         return info;
     }
 
+    /**
+     * Metodo encargado de cargar una mesa desde un archivo
+     * @param path de donde se encuentra el archivo
+     */
     public boolean cargarMesa(String path){
         BufferedReader reader;
         String infoJugador1 = "";
@@ -117,7 +145,11 @@ public abstract class Mesa <JugadorT extends Jugador, MazoT extends Mazo> {
             }
         return success;
     }
-
+    
+    /**
+     * Hace un arreglo de cartas a partir de la informacion de una mano
+     * @param mano mano de la cual se quiere hacer un arreglo
+     */
     public ArrayList<Carta> doArray(String mano){
         ArrayList<Carta> cartasList = new ArrayList<Carta>();
         String[] cartas = mano.split("/");

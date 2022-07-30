@@ -1,5 +1,6 @@
 package marda;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,12 +12,16 @@ public class GanadorView extends javax.swing.JFrame {
     /**
      * Constructor Ganador. Crea ventana para mostrar el ganador. Pregunta si se va a jugar de nuevo.
      * @param controlador una instacia de controlador al que la vista va a notificar
+     * @param logoPath direccion de la carpeta donde se encuentra la imagen del logo del juego
      */
-    public GanadorView(Controlador controlador) {
+    public GanadorView(Controlador controlador, String logoPath) {
         this.setLocationRelativeTo(null);
         this.setTitle("Ganador");
         initComponents();
         this.controlador = controlador;
+        
+        ImageIcon icono = new ImageIcon(getClass().getResource(logoPath));
+        logo.setIcon(icono);
     }
     
     /**
@@ -57,7 +62,7 @@ public class GanadorView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblTotal2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btnSi = new javax.swing.JButton();
         btnNo = new javax.swing.JButton();
@@ -76,7 +81,7 @@ public class GanadorView extends javax.swing.JFrame {
 
         jLabel6.setText("Felicidades el ganador es :");
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo.png"))); // NOI18N
 
         jLabel8.setText("¿Desea jugar de nuevo?");
 
@@ -130,7 +135,7 @@ public class GanadorView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +166,7 @@ public class GanadorView extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
@@ -232,7 +237,6 @@ public class GanadorView extends javax.swing.JFrame {
     private javax.swing.JButton btnSi;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblGanador;
@@ -240,5 +244,6 @@ public class GanadorView extends javax.swing.JFrame {
     private javax.swing.JLabel lblJug2;
     private javax.swing.JLabel lblTotal1;
     private javax.swing.JLabel lblTotal2;
+    private javax.swing.JLabel logo;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,6 +3,11 @@ package marda;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Esta clase define el controlador concreto del juego 21, el cual será el encargado de controlar a las clases modelo concreto y vista concreta.
+ * @author: Andy Alvarado, Gustavo Pinto y Maria Andres
+ * @version: 2022
+ */
 public class Controlador21 extends Controlador{
     final int numCartasXPalo = 13;
     final int numPalos = 4;
@@ -12,6 +17,9 @@ public class Controlador21 extends Controlador{
     private AsesView[] ases = new AsesView[4];
     private int asMano, asVerificados;
 
+     /**
+     * Constructor Controlador Concreto. Inicializa el las vistas y determina los palos y imagenes de las cartas
+     */
     public Controlador21(){
         my_jugador1 = new Jugador21();
         my_jugador2 = new Jugador21();
@@ -20,12 +28,15 @@ public class Controlador21 extends Controlador{
         my_mesa = new Mesa21(my_jugador1, my_jugador2, mazo);
         mesaView = new MesaView21(this);
         inicioView = new InicioView(this, "VeintiUno", "/Imagenes/Logo.png"); 
-        ganadorView = new GanadorView(this);
+        ganadorView = new GanadorView(this, "/Imagenes/Logo.png");
         jugadoresView = new JugadoresView(this, "/Imagenes/Logo.png");
         setMesa(my_mesa);
         iniciar();
     }
-
+    
+     /**
+   * Desecha las cartas y empieza el juego de nuevo con un nuevo maso
+   */
     public void nuevaRonda(){
         mesa.jugador1.desecharMano();
         mesa.jugador2.desecharMano();
@@ -40,7 +51,10 @@ public class Controlador21 extends Controlador{
         turno = 1;
         turno();
     }
-
+    
+     /**
+   * Dependiendo del turno actual, declara un ganador o sigue con el juego
+   */
     public void turno(){
         if(turno == 3){
             ganador();
@@ -51,6 +65,9 @@ public class Controlador21 extends Controlador{
         }
     }
     
+     /**
+   * Actualiza las cartas en la mesa
+   */
     public void actualizarCartas() {
         ArrayList<Integer> cartas = my_mesa.getCartasMesa();
         int num = cartas.get(0);
@@ -68,7 +85,12 @@ public class Controlador21 extends Controlador{
         mesaView.setIconCarta(1,"/Imagenes/back.png");
         mesaView.setIconCarta(6,"/Imagenes/back.png");
     }
-
+    
+     /**
+   * Devuelve la carta oculta de un jugador especifico
+   * @param jug el jugador del cual se debe averiguar la carta oculta
+   * @return carta oculta
+   */
     public String getCartaOculta(int jug){
         ArrayList<Integer> cartas = my_mesa.getCartasMesa();
         int num;
@@ -82,7 +104,12 @@ public class Controlador21 extends Controlador{
         }
         return getRutaCarta(num,palo);   
     }
-
+    
+     /**
+   * Cambia si un jugador esta plantado o no
+   * @param jugador Jugador que se planto
+   * @param plantado Si esta plantado o no
+   */
     public void setPlantarse(int jugador, boolean plantado){
         if (jugador == 1){
             my_jugador1.setSePlanto(plantado);
@@ -90,7 +117,10 @@ public class Controlador21 extends Controlador{
             my_jugador2.setSePlanto(plantado);
         }
     }
-
+    
+     /**
+   * Cambia el turno al siguiente
+   */
     public void nextTurno(){
         if (turno == 1) {
             if (my_jugador2.getSePlanto() == true){
@@ -111,7 +141,10 @@ public class Controlador21 extends Controlador{
         }
         turno();
     }
-
+    
+     /**
+   * Se encarga de darle una carta al jugador dependiendo del turno
+   */
     public void pedirCarta(){
         if (turno == 1){
             mesa.jugador1.recibirCarta(my_mesa.mazo.getCartaTop());
@@ -120,7 +153,10 @@ public class Controlador21 extends Controlador{
         }
 
     }
-
+    
+     /**
+   * Finaliza el turno del jugador, y verifica el valor de los ases
+   */
     public void finalizarTurno(){
         asVerificados ++;
         if(asVerificados == asMano){
@@ -128,7 +164,10 @@ public class Controlador21 extends Controlador{
             nextTurno();
         }
     }
-
+    
+     /**
+   * Verifica si un jugador tiene ases en su mano para preguntarle por el valor que le desea dar
+   */
     public void verificarAses(){
         boolean encontro = false;
         ArrayList<Carta> cartas;
@@ -155,7 +194,12 @@ public class Controlador21 extends Controlador{
             nextTurno();
         }
     }
-
+    
+     /**
+   * Cambia el vaor de un as de un jugador y posicion especifica
+   * @param jugador Jugador al que se le desea cambiar el valor del As
+   * @param pos Posicion donde se encuentra el As en la mano del jugador
+   */
     public void cambiarAs(int jugador, int pos) {
         if(jugador == 1){
             my_jugador1.cambiarAs(pos-1);
@@ -163,7 +207,11 @@ public class Controlador21 extends Controlador{
             my_jugador2.cambiarAs(pos-1);
         }
     }
-
+    
+     /**
+   * Finaliza el juego, cierra todas las vistas del juego
+   */
+    @Override
     public void finalizarJuego(){
         mesaView.dispose();
         ganadorView.dispose();
@@ -175,7 +223,11 @@ public class Controlador21 extends Controlador{
             }
         }
     }
-
+    
+     /**
+   * Finaliza la ronda y empieza una nueva
+   */
+    @Override
     public void finalizarRonda(){
         ganadorView.setVisible(false);
         nuevaRonda();

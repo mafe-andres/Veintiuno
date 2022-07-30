@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 public class JugadoresView extends javax.swing.JFrame {
 
     /**
-     * Constructor Jugadore. Crea ventana para preguntar los nombres de los jugadores.
+     * Constructor Jugadores. Crea ventana para preguntar los nombres de los jugadores.
      * @param controlador una instacia de controlador al que la vista va a notificar
      */
     public JugadoresView(Controlador controlador, String logoPath) {
